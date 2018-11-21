@@ -28,10 +28,24 @@ Route::get('/admin', 'AdminController@index');
 Route::get('/Planeamiento', 'BombaController@index');
 Route::get('/Planeamiento/BombaSumergible', 'BombaController@index');
 Route::get('/Planeamiento/BombaSumergible/Registrar', 'BombaController@create');
+Route::post('/Planeamiento/BombaSumergible/Guardar', 'BombaController@store');
+Route::get('/Planeamiento/BombaSumergible/{idbomba}/EditarBomba', 'BombaController@edit');
+Route::post('/Planeamiento/BombaSumergible/{idbomba}/Actualizar', 'BombaController@update');
+Route::get('/Planeamiento/BombaSumergible/{idbomba}/Eliminar', 'BombaController@destroy');
 //Ventilador
 Route::get('/Planeamiento/VentiladorAxial', 'VentiladorController@index');
 Route::get('/Planeamiento/VentiladorAxial/Registrar', 'VentiladorController@create');
+Route::post('/Planeamiento/VentiladorAxial/Guardar', 'VentiladorController@store');
+Route::get('/Planeamiento/VentiladorAxial/{idventilador}/EditarVentilador', 'VentiladorController@edit');
+Route::post('/Planeamiento/VentiladorAxial/{idventilador}/Actualizar', 'VentiladorController@update');
+Route::get('/Planeamiento/VentiladorAxial/{idventilador}/Eliminar', 'VentiladorController@destroy');
 //Tablero
 Route::get('/Planeamiento/Tablero', 'TableroController@index');
 Route::get('/Planeamiento/Tablero/Registrar', 'TableroController@create');
+Route::post('/Planeamiento/Tablero/Guardar', 'TableroController@store');
+Route::get('/Planeamiento/Tablero/{idtablero}/EditarTablero', 'TableroController@edit');
+Route::post('/Planeamiento/Tablero/{idtablero}/Actualizar', 'TableroController@update');
+Route::get('/Planeamiento/Tablero/{idtablero}/Eliminar', 'TableroController@destroy');
+//-------------------------------------------Alquiler--------------------------------------//
+Route::get('/Alquiler', 'CotizacionController@index');
 

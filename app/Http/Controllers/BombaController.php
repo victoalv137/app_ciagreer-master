@@ -36,7 +36,17 @@ class BombaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $bomba = new Bomba();
+        $bomba->codigo = $request->input('codigo');
+        $bomba->costo = $request->input('costo');
+        $bomba->marca = $request->input('marcaid');
+        $bomba->modelo = $request->input('modelo'); 
+        $bomba->alto = $request->input('alto');    
+        $bomba->caballo = $request->input('caballo');
+        $bomba->ancho = $request->input('ancho');  
+        $bomba->velocidad = $request->input('velocidad');     
+        $bomba->save();
+        return redirect('/Planeamiento/BombaSumergible');
     }
 
     /**
@@ -58,7 +68,8 @@ class BombaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $bomba = Bomba::find($id);
+        return view('planeamiento.bomba.editar')->with(compact('bomba'));
     }
 
     /**
@@ -70,7 +81,17 @@ class BombaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $bomba = Bomba::find($id);            
+        $bomba->codigo = $request->input('codigo');
+        $bomba->costo = $request->input('costo');
+        $bomba->marca = $request->input('marcaid');
+        $bomba->modelo = $request->input('modelo'); 
+        $bomba->alto = $request->input('alto');    
+        $bomba->caballo = $request->input('caballo');
+        $bomba->ancho = $request->input('ancho');  
+        $bomba->velocidad = $request->input('velocidad');     
+        $bomba->save();
+        return redirect('/Planeamiento/BombaSumergible');
     }
 
     /**
@@ -81,6 +102,8 @@ class BombaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $bomba = Bomba::find($id);
+        $bomba->delete();        
+        return redirect('/Planeamiento/BombaSumergible');
     }
 }

@@ -20,17 +20,19 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>Mark</td>
+    @foreach ($ventilador as $ventiladores) 
+    <tr>        
+      <td>{{ $ventiladores->codigo}}</td>
+      <td>{{ $ventiladores->costo}}</td>
+      <td>{{ $ventiladores->marca}}</td>
+      <td>{{ $ventiladores->modelo}}</td>
+      <td>{{ $ventiladores->capacidad}}</td>
       <td>
-        <button type="button" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</button>
-        <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</button>
-      </td>          
-    </tr>    
+          <a href="{{ url('/Planeamiento/VentiladorAxial/'.$ventiladores->id.'/EditarVentilador') }}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
+          <a href="{{ url('/Planeamiento/VentiladorAxial/'.$ventiladores->id.'/Eliminar') }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</a>
+      </td>     
+    </tr>
+     @endforeach     
   </tbody>
 </table>
 

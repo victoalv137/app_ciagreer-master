@@ -19,16 +19,19 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>     
+      @foreach ($tablero as $tableros) 
+    <tr>   
+        <td>{{ $tableros->codigo}}</td>
+        <td>{{ $tableros->costo}}</td>
+        <td>{{ $tableros->marca}}</td>
+        <td>{{ $tableros->modelo}}</td>       
+
       <td>
-        <button type="button" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</button>
-        <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</button>
-      </td>          
-    </tr>    
+          <a href="{{ url('/Planeamiento/Tablero/'.$tableros->id.'/EditarTablero') }}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
+          <a href="{{ url('/Planeamiento/Tablero/'.$tableros->id.'/Eliminar') }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</a>
+      </td>   
+   </tr>
+   @endforeach      
   </tbody>
 </table>
 

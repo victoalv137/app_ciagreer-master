@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Ventilador;
 
 class VentiladorController extends Controller
 {
@@ -13,7 +14,8 @@ class VentiladorController extends Controller
      */
     public function index()
     {
-        return view('planeamiento.ventilador.index');
+        $ventilador = Ventilador::all();
+        return view('planeamiento.ventilador.index')->with(compact('ventilador'));
     }
 
     /**
@@ -34,7 +36,15 @@ class VentiladorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ventilador = new Ventilador();
+        $ventilador->codigo = $request->input('codigo');
+        $ventilador->costo = $request->input('costo');
+        $ventilador->marca = $request->input('marcaid');
+        $ventilador->modelo = $request->input('modelo'); 
+        $ventilador->capacidad = $request->input('capacidad');    
+        $ventilador->medida = $request->input('medida');           
+        $ventilador->save();
+        return redirect('/Planeamiento/VentiladorAxial');
     }
 
     /**
@@ -56,7 +66,8 @@ class VentiladorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ventilador = Ventilador::find($id);
+        return view('planeamiento.ventilador.editar')->with(compact('ventilador'));
     }
 
     /**
@@ -68,7 +79,15 @@ class VentiladorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $ventilador = Ventilador::find($id);
+        $ventilador->codigo = $request->input('codigo');
+        $ventilador->costo = $request->input('costo');
+        $ventilador->marca = $request->input('marcaid');
+        $ventilador->modelo = $request->input('modelo'); 
+        $ventilador->capacidad = $request->input('capacidad');    
+        $ventilador->medida = $request->input('medida');           
+        $ventilador->save();
+        return redirect('/Planeamiento/VentiladorAxial');
     }
 
     /**
@@ -79,6 +98,8 @@ class VentiladorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ventilador = Ventilador::find($id);
+        $ventilador->delete();        
+        return redirect('/Planeamiento/VentiladorAxial');
     }
 }

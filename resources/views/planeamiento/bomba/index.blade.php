@@ -14,31 +14,25 @@
       <th scope="col">Codigo</th>
       <th scope="col">Costo</th>
       <th scope="col">Marca</th>
-      <th scope="col">Modelo</th>     
+      <th scope="col">Modelo</th>
+      <th scope="col">Potencia Nominal</th>     
       <th scope="col">Operaciones</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-    @php
-      $cont=1;     
-    @endphp
-    @foreach ($bomba as $bombas)
-      <th scope="row">1</th>
-      <td>{{ $cont }}</td>
-      <td>{{ $bombas->codigo}}</td>
-      <td>{{ $bombas->costo}}</td>
-      <td>{{ $bombas->marca}}</td>
-      <td>{{ $bombas->modelo}}</td>
-      <td>
-        <button type="button" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</button>
-        <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</button>
-      </td> 
-    @php
-      $cont++;     
-    @endphp  
+      @foreach ($bomba as $bombas)
+    <tr>                
+      <td >{{ $bombas->codigo}}</td>
+      <td >{{ $bombas->costo}}</td>
+      <td >{{ $bombas->marca}}</td>
+      <td >{{ $bombas->modelo}}</td>
+      <td >{{ $bombas->caballo}}</td>
+      <td >
+        <a href="{{ url('/Planeamiento/BombaSumergible/'.$bombas->id.'/EditarBomba') }}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
+        <a href="{{ url('/Planeamiento/BombaSumergible/'.$bombas->id.'/Eliminar') }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</a>
+      </td>
+    </tr>  
     @endforeach   
-    </tr>    
   </tbody>
 </table>
 

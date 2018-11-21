@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaBomba extends Migration
+class CrearTablaTablero extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,12 @@ class CrearTablaBomba extends Migration
      */
     public function up()
     {
-        Schema::create('Bomba', function (Blueprint $table) {
+        Schema::create('tablero', function (Blueprint $table) {
             $table->increments('id');
             $table->char('codigo',10);
             $table->float('costo',10,2);
             $table->string('marca');
             $table->string('modelo');
-            $table->float('alto',10,2);
-            $table->integer('caballo');
-            $table->float('ancho',10,2);
-            $table->integer('velocidad');
             $table->timestamps();
         });
     }
@@ -34,6 +30,6 @@ class CrearTablaBomba extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Bomba');
+        Schema::dropIfExists('tablero');
     }
 }

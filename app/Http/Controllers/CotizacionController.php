@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Tablero;
 
-class TableroController extends Controller
+class CotizacionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,7 @@ class TableroController extends Controller
      */
     public function index()
     {
-        $tablero = Tablero::all();
-        return view('planeamiento.tablero.index')->with(compact('tablero'));
+        return view('alquiler.cotizacion.index');
     }
 
     /**
@@ -25,7 +23,7 @@ class TableroController extends Controller
      */
     public function create()
     {
-        return view('planeamiento.tablero.registrar');
+        //
     }
 
     /**
@@ -36,13 +34,7 @@ class TableroController extends Controller
      */
     public function store(Request $request)
     {
-        $tablero = new Tablero();
-        $tablero->codigo = $request->input('codigo');
-        $tablero->costo = $request->input('costo');
-        $tablero->marca = $request->input('marcaid');
-        $tablero->modelo = $request->input('modelo');
-        $tablero->save();
-        return redirect('/Planeamiento/Tablero');
+        //
     }
 
     /**
@@ -64,8 +56,7 @@ class TableroController extends Controller
      */
     public function edit($id)
     {
-        $tablero = Tablero::find($id);
-        return view('planeamiento.tablero.editar')->with(compact('tablero'));
+        //
     }
 
     /**
@@ -77,13 +68,7 @@ class TableroController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tablero = Tablero::find($id);
-        $tablero->codigo = $request->input('codigo');
-        $tablero->costo = $request->input('costo');
-        $tablero->marca = $request->input('marcaid');
-        $tablero->modelo = $request->input('modelo');
-        $tablero->save();
-        return redirect('/Planeamiento/Tablero');
+        //
     }
 
     /**
@@ -94,8 +79,6 @@ class TableroController extends Controller
      */
     public function destroy($id)
     {
-        $tablero = Tablero::find($id);
-        $tablero->delete();        
-        return redirect('/Planeamiento/Tablero');
+        //
     }
 }

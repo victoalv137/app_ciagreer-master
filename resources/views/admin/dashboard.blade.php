@@ -103,7 +103,7 @@
               <h4 class="display-4">
                 <i class="fas fa-box-open"></i>
               </h4>
-              <a href="http://localhost:50" class="btn btn-outline-light btn-sm">Ver</a>
+              <a href="{{url('/Alquiler')}}" class="btn btn-outline-light btn-sm">Ver</a>
             </div>
           </div>
           {{-- @endcan --}}
