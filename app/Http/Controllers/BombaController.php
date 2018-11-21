@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Bomba;
 
 class BombaController extends Controller
 {
@@ -13,7 +14,8 @@ class BombaController extends Controller
      */
     public function index()
     {
-        return view('planeamiento.bomba.index');
+        $bomba = Bomba::all();
+        return view('planeamiento.bomba.index')->with(compact('bomba'));
     }
 
     /**
