@@ -97,4 +97,24 @@ class CotizacionController extends Controller
         $cotizacion->delete();        
         return redirect('/AlquilerVenta/Cotizacion');
     }
+
+
+    public function imprimir($id)
+    {
+        $cotizacion = Cotizacion::find($id);
+        $cliente = $cotizacion->cliente;
+        $producto = $cotizacion->producto;
+        if ($producto->tipo=='B') {
+            $bomba=$producto->$bomba;
+            return view('alquiler.reporte.imprimir-cotizacion-b')->with(compact('cotizacion','cliente','bomba'));
+        }else{
+            if ($producto->tipo=='T'){
+            $tablero=$producto->$tablero;
+            return view('alquiler.reporte.imprimir-cotizacion-t')->with(compact('cotizacion','cliente','tablero'));
+            }
+        }
+
+        $ventilador=$producto->$ventilador;
+        return view('alquiler.reporte.imprimir-cotizacion-v')->with(compact('cotizacion','cliente','ventilador'));
+    }
 }

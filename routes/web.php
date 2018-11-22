@@ -60,6 +60,9 @@ Route::get('/AlquilerVenta/Cotizacion/CrearCotizacion', 'CotizacionController@cr
 Route::post('/AlquilerVenta/Cotizacion/Guardar', 'CotizacionController@store');
 Route::get('/AlquilerVenta/Cotizacion/{idcotizacion}/Alquilar', 'AlquilerController@create');
 
+//Reporte
+Route::get('/AlquilerVenta/Cotizacion/{idcotizacion}/Imprimir', 'CotizacionController@imprimir');
+
 
 //-------------------------------------------Cliente--------------------------------------//
 Route::get('/Cliente', 'ClienteController@index');
