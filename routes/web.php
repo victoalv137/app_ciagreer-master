@@ -49,3 +49,14 @@ Route::get('/Planeamiento/Tablero/{idtablero}/Eliminar', 'TableroController@dest
 //-------------------------------------------Alquiler--------------------------------------//
 Route::get('/Alquiler', 'CotizacionController@index');
 
+
+//-------------------------------------------Cliente--------------------------------------//
+Route::get('/Cliente', 'ClienteController@index');
+Route::get('/Cliente/Registrar', 'ClienteController@create');
+Route::post('/Cliente/Guardar', 'ClienteController@store');
+Route::get('/Cliente/{idcliente}/EditarCliente', 'ClienteController@edit');
+Route::post('/Cliente/{idcliente}/Actualizar', 'ClienteController@update');
+Route::get('/Cliente/{idcliente}/Eliminar', 'ClienteController@destroy');
+
+
+

@@ -67,9 +67,9 @@
         <div class="col-md-3">
           <div class="card text-center bg-primary text-white mb-3">
             <div class="card-body">
-              <h3>Planeamiento</h3>
+              <h3>Inventario</h3>
               <h4 class="display-4">
-                <i class="fas fa-building"></i> 
+                <i class="fas fa-box-open"></i> 
               </h4>
               <a href="{{url('/Planeamiento')}}" class="btn btn-outline-light btn-sm">Ver</a>
             </div>
