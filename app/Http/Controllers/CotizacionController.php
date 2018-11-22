@@ -70,7 +70,10 @@ class CotizacionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cotizacion = Cotizacion::find($id);
+        $clientes = $cotizacion->cliente;
+        $productos = $cotizacion->producto;
+        return view('alquiler.cotizacion.editar')->with(compact('cotizacion','clientes','productos'));
     }
 
     /**
@@ -82,7 +85,14 @@ class CotizacionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cotizacion= Cotizacion::find($id);
+        $cotizacion->codigo = $request->input('codigo');
+        $cotizacion->validez = $request->input('validez');
+        $cotizacion->pago = $request->input('pago');
+        $cotizacion->cliente_id = $request->input('cliente');
+        $cotizacion->producto_id = $request->input('producto');
+        $cotizacion->save();
+        return redirect('/AlquilerVenta/Cotizacion');
     }
 
     /**
@@ -105,16 +115,16 @@ class CotizacionController extends Controller
         $cliente = $cotizacion->cliente;
         $producto = $cotizacion->producto;
         if ($producto->tipo=='B') {
-            $bomba=$producto->$bomba;
-            return view('alquiler.reporte.imprimir-cotizacion-b')->with(compact('cotizacion','cliente','bomba'));
+            $bomba=$producto->bomba;
+            return view('alquiler.reporte.imprimir-cotizacion-b')->with(compact('cotizacion','cliente','producto'));
         }else{
             if ($producto->tipo=='T'){
-            $tablero=$producto->$tablero;
+            $tablero=$producto->tablero;
             return view('alquiler.reporte.imprimir-cotizacion-t')->with(compact('cotizacion','cliente','tablero'));
             }
         }
 
-        $ventilador=$producto->$ventilador;
+        $ventilador=$producto->ventilador;
         return view('alquiler.reporte.imprimir-cotizacion-v')->with(compact('cotizacion','cliente','ventilador'));
     }
 }

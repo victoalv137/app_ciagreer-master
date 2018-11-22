@@ -26,20 +26,20 @@
             <img src="{{ asset('images/logotipo.png') }}" alt="Alternate Text" style="height:60px;" />
             </div>
     
-            <h3 style="text-align: center">COTIZACION: CTY-53-2018-CG</h3>
+        <h3 style="text-align: center">COTIZACION: {{$cotizacion->codigo}}</h3>
             <p style="text-align: right">Trujillo Thursday, November 22, 2018</p>
             <table style="font-weight: bold;font-size:12px;">
                 <tr>
                     <td>Señores:</td>
-                    <td id="lblCliente">COMPA&#241;IA MINERA CONDESTABLE S.A.</td>
+                    <td id="lblCliente">{{$cliente->nombreComercial}}</td>
                 </tr>
                 <tr>
                     <td>Atencion: </td>
-                    <td>Berrospi Gamboa, Luis Fernando </td>
+                    <td>Alvarado Moreno, Victor Antonio </td>
                 </tr>
                 <tr>
                     <td>Referencia: </td>
-                    <td>Alquiler de Electrobomba 15 HP</td>
+                <td>Alquiler de Tablero</td>
                 </tr>
             </table>
             <p>De mi especial consideracion</p>
@@ -66,27 +66,18 @@
                         <td rowspan="3" style="text-align: center">1</td>
                         <td>
                             <u><b>Alquiler de Electrobomba Sumergible</b></u>
-                            <p>Marca null, Modelo 2660, de 15 HP</p>
+                            <p>Marca {{$tablero->marca}}, Modelo {{$tablero->modelo}}, de 15 HP</p>
                             <p>Incluye: 15 metros de cable de fuerza </p>
                         </td>
-                        <td rowspan="3" style="text-align: center">$ 870.0000</td>
-                        <td rowspan="3" style="text-align: center">$ 870.0000</td>
+                        <td rowspan="3" style="text-align: center">$ {{$tablero->producto->costo}}</td>
+                        <td rowspan="3" style="text-align: center">$ {{$tablero->producto->costo}}</td>
                     </tr>
                     <tr>
                         <td>
-                            <u><b>Caracteristicas Técnicas</b></u>
-                            <p>Maximo Caudal: Caudal 90 l/s</p>
-                            <p>Máxima Altura Dinámica Total: 90 m</p>
-                            <p>Máximo Diámetro de Sólidos: 12 mm</p>
-                            <p>Velocidad: 3500 rpm</p>
-                            <p>Energía: 460. Arranque: Directo</p>
-                            <p>Corriente Nominal: 65 A</p>
-                            <p>Potencia Nominal: 15 HP./p>
-                            <p>Potencia Máxima Absorbida: 64 HP.</p>
-                            <p>Cable: SUBCAB 4G10 mm2
-    </p>
-                            <p>Dimensiones (AnxAlto): 510 1360 mm</p>
-                            <p>Peso: 285 Kg</p>
+                            <u><b>Caracteristicas Técnicas</b></u>                   
+                            <p>Marca: {{$tablero->marca}} rpm</p>                           
+                            <p>Modelo:{{$tablero->modelo}} </p>
+                                                
                         </td>
                     </tr>
                     <tr>
@@ -101,7 +92,7 @@
                     <tr>
                         <td colspan="3"></td>
                         <td>TOTAL</td>
-                        <td>$ 870 (incluye precio tablero)</td>
+                        <td>$ {{$tablero->producto->costo}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -109,11 +100,11 @@
             <table style="margin: 20px auto">
                 <tr>
                     <td><b>PAGO: </b></td>
-                    <td>30 dias después de recibir la factura</td>
+                    <td>{{$cotizacion->pago}} dias después de recibir la factura</td>
                 </tr>
                 <tr>
                     <td><b>VALIDEZ DE LA OFERTA: </b></td>
-                    <td>10 dias</td>
+                    <td>{{$cotizacion->validez}} dias</td>
                 </tr>
             </table>
     

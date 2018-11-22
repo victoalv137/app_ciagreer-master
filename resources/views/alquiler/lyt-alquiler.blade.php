@@ -11,7 +11,10 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ url('/AlquilerVenta/Alquiler') }}"><i class="fas fa-archive"></i> Alquiler</a>
-            </li>                       
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url('/AlquilerVenta/Ventas') }}"><i class="fas fa-piggy-bank"></i> Ventas</a>
+            </li>                                  
           </ul>
         </div>
         <div class="col-md-10  mt-3 ">

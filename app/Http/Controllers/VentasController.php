@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Tablero;
-use App\Producto;
-
-class TableroController extends Controller
+use App\Venta;
+class VentasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +13,8 @@ class TableroController extends Controller
      */
     public function index()
     {
-        $tablero = Tablero::all();
-        return view('planeamiento.tablero.index')->with(compact('tablero'));
+        $ventas=Venta::all();
+        return view('alquiler.ventas.index')->with(compact('ventas'));
     }
 
     /**
@@ -26,7 +24,7 @@ class TableroController extends Controller
      */
     public function create()
     {
-        return view('planeamiento.tablero.registrar');
+        //
     }
 
     /**
@@ -37,15 +35,7 @@ class TableroController extends Controller
      */
     public function store(Request $request)
     {
-        $producto = new Producto();
-        $producto->codigo = $request->input('codigo');
-        $producto->costo = $request->input('costo');
-        $tablero = new Tablero();
-        $tablero->marca = $request->input('marcaid');
-        $tablero->modelo = $request->input('modelo');
-        $producto->save();
-        $producto->tablero()->save($tablero);
-        return redirect('/Planeamiento/Tablero');
+        //
     }
 
     /**
@@ -67,9 +57,7 @@ class TableroController extends Controller
      */
     public function edit($id)
     {
-        $tablero = Tablero::find($id);
-        $producto->tipo ='T';
-        return view('planeamiento.tablero.editar')->with(compact('tablero'));
+        //
     }
 
     /**
@@ -81,13 +69,7 @@ class TableroController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tablero = Tablero::find($id);
-        $tablero->codigo = $request->input('codigo');
-        $tablero->costo = $request->input('costo');
-        $tablero->marca = $request->input('marcaid');
-        $tablero->modelo = $request->input('modelo');
-        $tablero->save();
-        return redirect('/Planeamiento/Tablero');
+        //
     }
 
     /**
@@ -98,8 +80,6 @@ class TableroController extends Controller
      */
     public function destroy($id)
     {
-        $tablero = Tablero::find($id);
-        $tablero->delete();        
-        return redirect('/Planeamiento/Tablero');
+        //
     }
 }

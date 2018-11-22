@@ -53,12 +53,25 @@ Route::post('/Planeamiento/Repuesto/Guardar', 'RepuestoController@store');
 Route::get('/Planeamiento/Repuesto/{idrepuesto}/EditarRepuesto', 'RepuestoController@edit');
 Route::post('/Planeamiento/Repuesto/{idrepuesto}/Actualizar', 'RepuestoController@update');
 Route::get('/Planeamiento/Repuesto/{idrepuesto}/Eliminar', 'RepuestoController@destroy');
-//-------------------------------------------Alquiler--------------------------------------//
+//-------------------------------------------Cotizacion--------------------------------------//
 Route::get('/AlquilerVenta', 'CotizacionController@index');
 Route::get('/AlquilerVenta/Cotizacion', 'CotizacionController@index');
 Route::get('/AlquilerVenta/Cotizacion/CrearCotizacion', 'CotizacionController@create');
 Route::post('/AlquilerVenta/Cotizacion/Guardar', 'CotizacionController@store');
+Route::get('/AlquilerVenta/Cotizacion/{idcotizacion}/EditarCotizacion', 'CotizacionController@edit');
+Route::post('/AlquilerVenta/Cotizacion/{idcotizacion}/Actualizar', 'CotizacionController@update');
+Route::get('/AlquilerVenta/Cotizacion/{idcotizacion}/Eliminar', 'CotizacionController@destroy');
+//-------------------------------------------Alquiler--------------------------------------//
+Route::get('/AlquilerVenta/Alquiler', 'AlquilerController@index');
 Route::get('/AlquilerVenta/Cotizacion/{idcotizacion}/Alquilar', 'AlquilerController@create');
+
+//-------------------------------------------Alquiler--------------------------------------//
+Route::get('/AlquilerVenta/Ventas', 'VentasController@index');
+Route::get('/AlquilerVenta/Ventas/CrearVenta', 'VentasController@create');
+Route::post('/AlquilerVenta/Ventas/Guardar', 'VentasController@store');
+Route::get('/AlquilerVenta/Ventas/{idventa}/EditarCotizacion', 'VentasController@edit');
+Route::post('/AlquilerVenta/Ventas/{idventa}/Actualizar', 'VentasController@update');
+Route::get('/AlquilerVenta/Ventas/{idventa}/Eliminar', 'VentasController@destroy');
 
 //Reporte
 Route::get('/AlquilerVenta/Cotizacion/{idcotizacion}/Imprimir', 'CotizacionController@imprimir');

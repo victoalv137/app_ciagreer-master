@@ -17,6 +17,7 @@ class CrearTablaProducto extends Migration
             $table->increments('id');
             $table->string('estado')->default('stand by');
             $table->string('codigo');
+            $table->char('tipo',1);
             $table->float('costo',10,2);
             $table->timestamps();
         });

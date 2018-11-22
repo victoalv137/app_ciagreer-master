@@ -40,6 +40,7 @@ class VentiladorController extends Controller
         $producto = new Producto();
         $producto->codigo = $request->input('codigo');
         $producto->costo = $request->input('costo');
+        $producto->tipo ='V';
         $ventilador = new Ventilador();
         $ventilador->marca = $request->input('marcaid');
         $ventilador->modelo = $request->input('modelo'); 

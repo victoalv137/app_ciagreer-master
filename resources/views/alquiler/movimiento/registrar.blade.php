@@ -7,28 +7,28 @@
             <h3>Registrar Alquiler</h3>
         </div>
         <div class="col-md-1 offset-5 text-right">        
-            <button type="submit" class="btn btn-success text-right"><i class="far fa-save"></i> Guardar</button>        
+            <button type="submit" class="btn btn-success text-right"><i class="far fa-save"></i> Alquilar</button>        
         </div><br><br>
     </div>
     <h4>Datos Generales</h4>
     <div class="row">
         <div class="col-md-6">
             <label for="">Cotizacion</label>       
-            <input type="text" class="form-control" value="" name="codigo" disabled>
+        <input type="text" class="form-control" value="{{$cotizacion->codigo}}" name="codigo" disabled>
         </div>
         <div class="col-md-6">       
                 <label for="">Cliente</label>       
-                <input type="text" class="form-control" value="" name="codigo" disabled>
+        <input type="text" class="form-control" value="{{$cotizacion->cliente->nombreComercial}}" name="cliente" disabled>
         </div>
     </div><br>
     <div class="row">
             <div class="col-md-6">
                     <label for="">Producto</label>       
-                    <input type="text" class="form-control" value="" name="codigo" disabled>
+                    <input type="text" class="form-control" value="{{$cotizacion->producto->codigo}}" name="producto" disabled>
             </div>
             <div class="col-md-6">       
                     <label for="">Costo(Mes)</label>       
-                    <input type="text" class="form-control" value="" name="codigo" disabled>
+                    <input type="text" class="form-control" value="{{$cotizacion->producto->costo}}" name="costo" disabled>
             </div>
     </div><br>
     <h4>Datos Llenables</h4>

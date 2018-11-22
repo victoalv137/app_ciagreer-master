@@ -10,5 +10,9 @@ class Cliente extends Model
     public function cotizaciones(){
         return $this->hasmany('App\Cotizacion','cliente_id','id');
     }
+    public function alquiler()
+    {
+        return $this->belongsTo('App\Alquiler','cliente_id','id');
+    }
     protected $table = 'cliente';
 }

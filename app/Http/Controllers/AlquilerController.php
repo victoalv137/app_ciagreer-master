@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Cliente;
+use App\Producto;
+use App\Cotizacion;
+use App\Alquiler;
 
 class AlquilerController extends Controller
 {
@@ -13,7 +17,8 @@ class AlquilerController extends Controller
      */
     public function index()
     {
-        //
+        $alquiler = Alquiler::all();
+        return view('alquiler.movimiento.index');
     }
 
     /**
@@ -21,9 +26,12 @@ class AlquilerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return view('alquiler.movimiento.registrar');
+        $cotizacion = Cotizacion::find($id);
+        $cliente = $cotizacion->cliente;
+        $producto = $cotizacion->producto;       
+        return view('alquiler.movimiento.registrar')->with(compact('cotizacion'));;
     }
 
     /**
@@ -34,7 +42,7 @@ class AlquilerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**

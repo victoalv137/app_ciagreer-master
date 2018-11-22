@@ -22,7 +22,7 @@
       @foreach ($tablero as $tableros) 
     <tr>   
         <td>{{ $tableros->producto->codigo}}</td>
-        <td>{{ $tableros->costo}}</td>
+        <td>{{ $tableros->producto->costo}}</td>
         <td>{{ $tableros->marca}}</td>
         <td>{{ $tableros->modelo}}</td>       
 

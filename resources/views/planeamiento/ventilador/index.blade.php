@@ -23,7 +23,7 @@
     @foreach ($ventilador as $ventiladores) 
     <tr>        
       <td>{{ $ventiladores->producto->codigo}}</td>
-      <td>{{ $ventiladores->costo}}</td>
+      <td>{{ $ventiladores->producto->costo}}</td>
       <td>{{ $ventiladores->marca}}</td>
       <td>{{ $ventiladores->modelo}}</td>
       <td>{{ $ventiladores->capacidad}}</td>

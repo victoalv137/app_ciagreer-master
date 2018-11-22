@@ -40,6 +40,7 @@ class BombaController extends Controller
         $producto = new Producto();
         $producto->codigo = $request->input('codigo');
         $producto->costo = $request->input('costo');
+        $producto->tipo ='B';
         $bomba = new Bomba();    
         $bomba->marca = $request->input('marcaid');
         $bomba->modelo = $request->input('modelo'); 
