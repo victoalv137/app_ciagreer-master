@@ -99,11 +99,11 @@
         <div class="col-md-3">
           <div class="card text-center bg-warning text-white mb-3">
             <div class="card-body">
-              <h3>Alquiler</h3>
+              <h3>Alquiler y Ventas</h3>
               <h4 class="display-4">
                 <i class="fas fa-box-open"></i>
               </h4>
-              <a href="{{url('/Alquiler')}}" class="btn btn-outline-light btn-sm">Ver</a>
+              <a href="{{url('/AlquilerVenta')}}" class="btn btn-outline-light btn-sm">Ver</a>
             </div>
           </div>
           {{-- @endcan --}}

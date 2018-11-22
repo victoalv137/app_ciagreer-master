@@ -22,7 +22,7 @@
   <tbody>
       @foreach ($bomba as $bombas)
     <tr>                
-      <td >{{ $bombas->codigo}}</td>
+      <td >{{ $bombas->producto->codigo}}</td>
       <td >{{ $bombas->costo}}</td>
       <td >{{ $bombas->marca}}</td>
       <td >{{ $bombas->modelo}}</td>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Bomba;
+use App\Producto;
 
 class BombaController extends Controller
 {
@@ -36,16 +37,18 @@ class BombaController extends Controller
      */
     public function store(Request $request)
     {
-        $bomba = new Bomba();
-        $bomba->codigo = $request->input('codigo');
-        $bomba->costo = $request->input('costo');
+        $producto = new Producto();
+        $producto->codigo = $request->input('codigo');
+        $producto->costo = $request->input('costo');
+        $bomba = new Bomba();    
         $bomba->marca = $request->input('marcaid');
         $bomba->modelo = $request->input('modelo'); 
         $bomba->alto = $request->input('alto');    
         $bomba->caballo = $request->input('caballo');
         $bomba->ancho = $request->input('ancho');  
-        $bomba->velocidad = $request->input('velocidad');     
-        $bomba->save();
+        $bomba->velocidad = $request->input('velocidad');
+        $producto->save();
+        $producto->bomba()->save($bomba);  
         return redirect('/Planeamiento/BombaSumergible');
     }
 

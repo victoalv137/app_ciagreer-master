@@ -5,7 +5,7 @@
       <h3>Cotizacion</h3>
   </div>
   <div class="col-md-1 offset-5 text-right"> 
-      <a href="{{ url('/Planeamiento/BombaSumergible/Registrar') }}" class="btn btn-success text-right"><i class="fas fa-plus-square"></i> Registrar</a>            
+      <a href="{{ url('AlquilerVenta/Cotizacion/CrearCotizacion') }}" class="btn btn-success text-right"><i class="fas fa-plus-square"></i> Registrar</a>            
   </div><br><br>
 </div>
 <table class="table table-bordered">
@@ -20,19 +20,21 @@
     </tr>
   </thead>
   <tbody>
-      {{-- @foreach ($bomba as $bombas) --}}
+      @foreach ($cotizaciones as $cotizacion)
     <tr>                
-      {{-- <td >{{ $bombas->codigo}}</td>
-      <td >{{ $bombas->costo}}</td>
-      <td >{{ $bombas->marca}}</td>
-      <td >{{ $bombas->modelo}}</td>
-      <td >{{ $bombas->caballo}}</td> --}}
+      <td >{{ $cotizacion->codigo}}</td>
+      <td >{{ $cotizacion->cliente->nombreComercial}}</td>
+      <td >{{ $cotizacion->producto->codigo}}</td>
+      <td >{{ $cotizacion->created_at}}</td>
+      <td >{{ $cotizacion->validez}}</td>
       <td >
-        {{-- <a href="{{ url('/Planeamiento/BombaSumergible/'.$bombas->id.'/EditarBomba') }}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
-        <a href="{{ url('/Planeamiento/BombaSumergible/'.$bombas->id.'/Eliminar') }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</a> --}}
+        <a href="{{ url('/AlquilerVenta/Cotizacion/'.$cotizacion->id.'/EditarCotizacion') }}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
+        <a href="{{ url('/AlquilerVenta/Cotizacion/'.$cotizacion->id.'/Imprimir') }}" class="btn btn-dark"><i class="fas fa-print"></i> imprimir</a>
+        <a href="{{ url('/AlquilerVenta/Cotizacion/'.$cotizacion->id.'/Alquilar') }}" class="btn btn-info"><i class="fas fa-handshake"></i> Alquilar</a>
+        <a href="{{ url('/AlquilerVenta/Cotizacion/'.$cotizacion->id.'/Eliminar') }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</a>
       </td>
     </tr>  
-    {{-- @endforeach    --}}
+    @endforeach   
   </tbody>
 </table>
 

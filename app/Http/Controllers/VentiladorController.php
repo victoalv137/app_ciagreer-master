@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Ventilador;
+use App\Producto;
 
 class VentiladorController extends Controller
 {
@@ -36,14 +37,16 @@ class VentiladorController extends Controller
      */
     public function store(Request $request)
     {
+        $producto = new Producto();
+        $producto->codigo = $request->input('codigo');
+        $producto->costo = $request->input('costo');
         $ventilador = new Ventilador();
-        $ventilador->codigo = $request->input('codigo');
-        $ventilador->costo = $request->input('costo');
         $ventilador->marca = $request->input('marcaid');
         $ventilador->modelo = $request->input('modelo'); 
         $ventilador->capacidad = $request->input('capacidad');    
         $ventilador->medida = $request->input('medida');           
-        $ventilador->save();
+        $producto->save();
+        $producto->ventilador()->save($ventilador);
         return redirect('/Planeamiento/VentiladorAxial');
     }
 

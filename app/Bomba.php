@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bomba extends Model
 {
-    protected $fillable=['codigo','costo','marca','modelo','alto','peso','ancho','velocidad'];
- 	
+    protected $fillable=['costo','marca','modelo','alto','peso','ancho','velocidad'];
+    
+    public function producto()
+    {
+        return $this->belongsTo('App\Producto','producto_id','id');
+    }
     protected $table = 'bomba';
 }

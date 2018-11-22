@@ -46,8 +46,19 @@ Route::post('/Planeamiento/Tablero/Guardar', 'TableroController@store');
 Route::get('/Planeamiento/Tablero/{idtablero}/EditarTablero', 'TableroController@edit');
 Route::post('/Planeamiento/Tablero/{idtablero}/Actualizar', 'TableroController@update');
 Route::get('/Planeamiento/Tablero/{idtablero}/Eliminar', 'TableroController@destroy');
+//Repuesto
+Route::get('/Planeamiento/Repuesto', 'RepuestoController@index');
+Route::get('/Planeamiento/Repuesto/Registrar', 'RepuestoController@create');
+Route::post('/Planeamiento/Repuesto/Guardar', 'RepuestoController@store');
+Route::get('/Planeamiento/Repuesto/{idrepuesto}/EditarRepuesto', 'RepuestoController@edit');
+Route::post('/Planeamiento/Repuesto/{idrepuesto}/Actualizar', 'RepuestoController@update');
+Route::get('/Planeamiento/Repuesto/{idrepuesto}/Eliminar', 'RepuestoController@destroy');
 //-------------------------------------------Alquiler--------------------------------------//
-Route::get('/Alquiler', 'CotizacionController@index');
+Route::get('/AlquilerVenta', 'CotizacionController@index');
+Route::get('/AlquilerVenta/Cotizacion', 'CotizacionController@index');
+Route::get('/AlquilerVenta/Cotizacion/CrearCotizacion', 'CotizacionController@create');
+Route::post('/AlquilerVenta/Cotizacion/Guardar', 'CotizacionController@store');
+Route::get('/AlquilerVenta/Cotizacion/{idcotizacion}/Alquilar', 'AlquilerController@create');
 
 
 //-------------------------------------------Cliente--------------------------------------//

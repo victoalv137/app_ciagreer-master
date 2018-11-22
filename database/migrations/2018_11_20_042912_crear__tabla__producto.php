@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaTablero extends Migration
+class CrearTablaProducto extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CrearTablaTablero extends Migration
      */
     public function up()
     {
-        Schema::create('tablero', function (Blueprint $table) {
-            $table->increments('id'); 
-            $table->unsignedInteger('producto_id');
-            $table->foreign('producto_id')->references('id')->on('producto');          
-            $table->string('marca');
-            $table->string('modelo');
+        Schema::create('producto', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('estado')->default('stand by');
+            $table->string('codigo');
+            $table->float('costo',10,2);
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CrearTablaTablero extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tablero');
+        Schema::dropIfExists('producto');
     }
 }

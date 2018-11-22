@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Tablero;
+use App\Producto;
 
 class TableroController extends Controller
 {
@@ -36,12 +37,14 @@ class TableroController extends Controller
      */
     public function store(Request $request)
     {
+        $producto = new Producto();
+        $producto->codigo = $request->input('codigo');
+        $producto->costo = $request->input('costo');
         $tablero = new Tablero();
-        $tablero->codigo = $request->input('codigo');
-        $tablero->costo = $request->input('costo');
         $tablero->marca = $request->input('marcaid');
         $tablero->modelo = $request->input('modelo');
-        $tablero->save();
+        $producto->save();
+        $producto->tablero()->save($tablero);
         return redirect('/Planeamiento/Tablero');
     }
 

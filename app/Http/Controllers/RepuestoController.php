@@ -3,21 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Cliente;
-use App\Producto;
-use App\Cotizacion;
+use App\Repuesto;
 
-class CotizacionController extends Controller
+class RepuestoController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()    
+    public function index()
     {
-        $cotizaciones=Cotizacion::all();
-        return view('alquiler.cotizacion.index')->with(compact('cotizaciones'));
+        $repuestos = Repuesto::all();
+        return view('planeamiento.repuesto.index')->with(compact('repuestos'));
     }
 
     /**
@@ -27,9 +25,7 @@ class CotizacionController extends Controller
      */
     public function create()
     {
-        $clientes= Cliente::all();
-        $productos=Producto::all();
-        return view('alquiler.cotizacion.registrar')->with(compact('clientes','productos'));
+        return view('planeamiento.repuesto.registrar');
     }
 
     /**
@@ -40,15 +36,13 @@ class CotizacionController extends Controller
      */
     public function store(Request $request)
     {
-        $cotizacion= new Cotizacion();
-        $cotizacion->codigo = $request->input('codigo');
-        $cotizacion->validez = $request->input('validez');
-        $cotizacion->pago = $request->input('pago');
-        $cotizacion->cliente_id = $request->input('cliente');
-        $cotizacion->producto_id = $request->input('producto');
-        $cotizacion->save();
-        return redirect('/AlquilerVenta/Cotizacion');
-
+        $repuesto = new Repuesto();
+        $repuesto->codigo = $request->input('codigo');     
+        $repuesto->descripcion = $request->input('descripcion');   
+        $repuesto->marca = $request->input('marca');   
+        $repuesto->costo = $request->input('costo');      
+        $repuesto->save();       
+        return redirect('/Planeamiento/Repuesto');
     }
 
     /**
@@ -70,7 +64,8 @@ class CotizacionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $repuestos = Repuesto::find($id);
+        return view('planeamiento.repuesto.editar')->with(compact('repuestos'));
     }
 
     /**
@@ -82,7 +77,13 @@ class CotizacionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $repuesto = Repuesto::find($id);            
+        $repuesto->codigo = $request->input('codigo');     
+        $repuesto->descripcion = $request->input('descripcion');   
+        $repuesto->marca = $request->input('marca');   
+        $repuesto->costo = $request->input('costo');      
+        $repuesto->save();       
+        return redirect('/Planeamiento/Repuesto');
     }
 
     /**
@@ -93,8 +94,8 @@ class CotizacionController extends Controller
      */
     public function destroy($id)
     {
-        $cotizacion = Cotizacion::find($id);
-        $cotizacion->delete();        
-        return redirect('/AlquilerVenta/Cotizacion');
+        $repuesto = Repuesto::find($id);
+        $repuesto->delete();        
+        return redirect('/Planeamiento/Repuesto');
     }
 }

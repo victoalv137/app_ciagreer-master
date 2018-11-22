@@ -3,21 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Cliente;
-use App\Producto;
-use App\Cotizacion;
 
-class CotizacionController extends Controller
+class AlquilerController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()    
+    public function index()
     {
-        $cotizaciones=Cotizacion::all();
-        return view('alquiler.cotizacion.index')->with(compact('cotizaciones'));
+        //
     }
 
     /**
@@ -27,9 +23,7 @@ class CotizacionController extends Controller
      */
     public function create()
     {
-        $clientes= Cliente::all();
-        $productos=Producto::all();
-        return view('alquiler.cotizacion.registrar')->with(compact('clientes','productos'));
+        return view('alquiler.movimiento.registrar');
     }
 
     /**
@@ -40,15 +34,7 @@ class CotizacionController extends Controller
      */
     public function store(Request $request)
     {
-        $cotizacion= new Cotizacion();
-        $cotizacion->codigo = $request->input('codigo');
-        $cotizacion->validez = $request->input('validez');
-        $cotizacion->pago = $request->input('pago');
-        $cotizacion->cliente_id = $request->input('cliente');
-        $cotizacion->producto_id = $request->input('producto');
-        $cotizacion->save();
-        return redirect('/AlquilerVenta/Cotizacion');
-
+        //
     }
 
     /**
@@ -93,8 +79,6 @@ class CotizacionController extends Controller
      */
     public function destroy($id)
     {
-        $cotizacion = Cotizacion::find($id);
-        $cotizacion->delete();        
-        return redirect('/AlquilerVenta/Cotizacion');
+        //
     }
 }

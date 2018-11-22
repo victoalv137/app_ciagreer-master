@@ -14,9 +14,9 @@ class CrearTablaVentilador extends Migration
     public function up()
     {
         Schema::create('ventilador', function (Blueprint $table) {
-            $table->increments('id');
-            $table->char('codigo',10);
-            $table->float('costo',10,2);
+            $table->increments('id');  
+            $table->unsignedInteger('producto_id');
+            $table->foreign('producto_id')->references('id')->on('producto');          
             $table->string('marca');
             $table->string('modelo');
             $table->float('capacidad',10,2);

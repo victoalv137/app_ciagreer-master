@@ -14,7 +14,10 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ url('/Planeamiento/Tablero') }}"><i class="fas fa-table"></i> Tableros</a>
-            </li>            
+            </li> 
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/Planeamiento/Repuesto') }}"><i class="fas fa-toolbox"></i> Repuesto</a>
+              </li>           
           </ul>
         </div>
         <div class="col-md-10  mt-3 ">

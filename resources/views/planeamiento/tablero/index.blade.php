@@ -21,7 +21,7 @@
   <tbody>
       @foreach ($tablero as $tableros) 
     <tr>   
-        <td>{{ $tableros->codigo}}</td>
+        <td>{{ $tableros->producto->codigo}}</td>
         <td>{{ $tableros->costo}}</td>
         <td>{{ $tableros->marca}}</td>
         <td>{{ $tableros->modelo}}</td>       
