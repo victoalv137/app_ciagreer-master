@@ -76,11 +76,8 @@ Route::post('/AlquilerVenta/Ventas/CrearVenta/{idventa}/Productos', 'VentasContr
 Route::get('/AlquilerVenta/Ventas/CrearVenta/{idventa}/Productos/{iddventa}/Eliminar', 'VentasController@EliminarDventa');
 Route::get('/AlquilerVenta/Ventas/CrearVenta/{idventa}/Productos/Eliminar', 'VentasController@EliminarVenta');
 Route::get('/AlquilerVenta/Ventas/{idventa}/Eliminar','VentasController@EliminarVenta'); 
-
 //Reporte
 Route::get('/AlquilerVenta/Cotizacion/{idcotizacion}/Imprimir', 'CotizacionController@imprimir');
-
-
 //-------------------------------------------Cliente--------------------------------------//
 Route::get('/Cliente', 'ClienteController@index');
 Route::get('/Cliente/Registrar', 'ClienteController@create');
@@ -88,6 +85,19 @@ Route::post('/Cliente/Guardar', 'ClienteController@store');
 Route::get('/Cliente/{idcliente}/EditarCliente', 'ClienteController@edit');
 Route::post('/Cliente/{idcliente}/Actualizar', 'ClienteController@update');
 Route::get('/Cliente/{idcliente}/Eliminar', 'ClienteController@destroy');
-
+//-------------------------------------------Empleado--------------------------------------//
+Route::get('/RecursosHumanos/Empleados', 'RecursosController@indexEmpleado');
+Route::get('/RecursosHumanos/RegistrarEmpleado', 'RecursosController@createEmpleado');
+Route::post('/RecursosHumanos/Empleado/Guardar', 'RecursosController@storeEmpleado');
+//-------------------------------------------Capacitacion--------------------------------------//
+Route::get('/RecursosHumanos/Capacitacion', 'RecursosController@indexCapacitacion');
+Route::get('/RecursosHumanos/Capacitacion/RegistrarCapacitacion', 'RecursosController@createCapacitacion');
+Route::get('/RecursosHumanos/Capacitacion/RegistrarCapacitacion/{idcapacitacion}/Participantes', 'RecursosController@VerParticipantes');
+Route::post('/RecursosHumanos/Capacitacion/Guardar', 'RecursosController@storeCapacitacion');
+Route::post('/RecursosHumanos/Capacitacion/RegistrarCapacitacion/{idcapacitacion}/Participantes', 'RecursosController@Participantes');
+//-------------------------------------------Area--------------------------------------//
+Route::get('/RecursosHumanos/Areas', 'RecursosController@indexArea');
+Route::get('/RecursosHumanos/Areas/RegistrarArea', 'RecursosController@createArea');
+Route::post('/RecursosHumanos/Areas/Guardar', 'RecursosController@storeArea');
 
 

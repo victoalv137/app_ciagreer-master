@@ -65,7 +65,7 @@
           </div>
         </div> --}}
         <div class="col-md-3">
-          <div class="card text-center bg-primary text-white mb-3">
+          <div class="card text-center bg-info text-white mb-3">
             <div class="card-body">
               <h3>Inventario</h3>
               <h4 class="display-4">
@@ -76,13 +76,13 @@
           </div>
         </div>
         <div class="col-md-3">
-          <div class="card text-center bg-primary text-white mb-3">
+          <div class="card text-center bg-info text-white mb-3">
             <div class="card-body">
-              <h3>Normativa</h3>
+              <h3>Seguridad</h3>
               <h4 class="display-4">
-                <i class="fas fa-list"></i>
+              <i class="fas fa-lock"></i>
               </h4>
-              <a href="{{url('/admin/empresas')}}" class="btn btn-outline-light btn-sm">Ver</a>
+              <a href="{{url('/Seguridad')}}" class="btn btn-outline-light btn-sm">Ver</a>
             </div>
           </div>
         </div>
@@ -97,7 +97,7 @@
           </div> -->
           {{-- @can('admin.register') --}}
         <div class="col-md-3">
-          <div class="card text-center bg-warning text-white mb-3">
+          <div class="card text-center bg-success text-white mb-3">
             <div class="card-body">
               <h3>Alquiler y Ventas</h3>
               <h4 class="display-4">
@@ -111,11 +111,23 @@
         <div class="col-md-3">
           <div class="card text-center bg-warning text-white mb-3">
             <div class="card-body">
-              <h3>Ventas</h3>
+              <h3>Seguridad</h3>
               <h4 class="display-4">
-                <i class="fas fa-cog"></i>
+              <i class="fas fa-lock"></i>
               </h4>
-              <a href="{{url('/admin/register')}}" class="btn btn-outline-light btn-sm">Ver</a>
+              <a href="{{url('/admin/Seguridad')}}" class="btn btn-outline-light btn-sm">Ver</a>
+            </div>
+          </div>
+          {{-- @endcan --}}
+        </div>
+        <div class="col-md-3">
+          <div class="card text-center bg-secondary text-white mb-3">
+            <div class="card-body">
+              <h4>Recursos Humanos</h4>
+              <h4 class="display-4">
+              <i class="fas fa-address-book"></i>
+              </h4>
+              <a href="{{url('/RecursosHumanos/Empleados')}}" class="btn btn-outline-light btn-sm">Ver</a>
             </div>
           </div>
           {{-- @endcan --}}
@@ -127,7 +139,7 @@
               <h4 class="display-4">
                 <i class="fas fa-cog"></i>
               </h4>
-              <a href="{{url('/admin/register')}}" class="btn btn-outline-light btn-sm">Ver</a>
+              <a href="{{url('/admin')}}" class="btn btn-outline-light btn-sm">Ver</a>
             </div>
           </div>
           {{-- @endcan --}}
@@ -139,7 +151,7 @@
               <h4 class="display-4">
                 <i class="fas fa-cog"></i>
               </h4>
-              <a href="{{url('/admin/register')}}" class="btn btn-outline-light btn-sm">Ver</a>
+              <a href="{{url('/admin')}}" class="btn btn-outline-light btn-sm">Ver</a>
             </div>
           </div>
           {{-- @endcan --}}
@@ -151,7 +163,7 @@
               <h4 class="display-4">
                 <i class="fas fa-cog"></i>
               </h4>
-              <a href="{{url('/admin/register')}}" class="btn btn-outline-light btn-sm">Ver</a>
+              <a href="{{url('/admin')}}" class="btn btn-outline-light btn-sm">Ver</a>
             </div>
           </div>
           {{-- @endcan --}}
@@ -163,7 +175,7 @@
               <h4 class="display-4">
                 <i class="fas fa-cog"></i>
               </h4>
-              <a href="{{url('/admin/register')}}" class="btn btn-outline-light btn-sm">Ver</a>
+              <a href="{{url('/admin')}}" class="btn btn-outline-light btn-sm">Ver</a>
             </div>
           </div>
           {{-- @endcan --}}
@@ -175,7 +187,7 @@
               <h4 class="display-4">
                 <i class="fas fa-cog"></i>
               </h4>
-              <a href="{{url('/admin/register')}}" class="btn btn-outline-light btn-sm">Ver</a>
+              <a href="{{url('/admin')}}" class="btn btn-outline-light btn-sm">Ver</a>
             </div>
           </div>
           {{-- @endcan --}}
@@ -187,7 +199,7 @@
               <h4 class="display-4">
                 <i class="fas fa-cog"></i>
               </h4>
-              <a href="{{url('/admin/register')}}" class="btn btn-outline-light btn-sm">Ver</a>
+              <a href="{{url('/admin')}}" class="btn btn-outline-light btn-sm">Ver</a>
             </div>
           </div>
           {{-- @endcan --}}
@@ -199,19 +211,7 @@
               <h4 class="display-4">
                 <i class="fas fa-cog"></i>
               </h4>
-              <a href="{{url('/admin/register')}}" class="btn btn-outline-light btn-sm">Ver</a>
-            </div>
-          </div>
-          {{-- @endcan --}}
-        </div>
-        <div class="col-md-3">
-          <div class="card text-center bg-warning text-white mb-3">
-            <div class="card-body">
-              <h3>Ventas</h3>
-              <h4 class="display-4">
-                <i class="fas fa-cog"></i>
-              </h4>
-              <a href="{{url('/admin/register')}}" class="btn btn-outline-light btn-sm">Ver</a>
+              <a href="{{url('/admin')}}" class="btn btn-outline-light btn-sm">Ver</a>
             </div>
           </div>
           {{-- @endcan --}}
