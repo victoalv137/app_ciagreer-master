@@ -64,14 +64,18 @@ Route::get('/AlquilerVenta/Cotizacion/{idcotizacion}/Eliminar', 'CotizacionContr
 //-------------------------------------------Alquiler--------------------------------------//
 Route::get('/AlquilerVenta/Alquiler', 'AlquilerController@index');
 Route::get('/AlquilerVenta/Cotizacion/{idcotizacion}/Alquilar', 'AlquilerController@create');
+Route::post('/AlquilerVenta/Cotizacion/{idcotizacion}/Alquiler/Guardar', 'AlquilerController@store');
 
-//-------------------------------------------Alquiler--------------------------------------//
+//-------------------------------------------Ventas--------------------------------------//
 Route::get('/AlquilerVenta/Ventas', 'VentasController@index');
 Route::get('/AlquilerVenta/Ventas/CrearVenta', 'VentasController@create');
 Route::post('/AlquilerVenta/Ventas/Guardar', 'VentasController@store');
-Route::get('/AlquilerVenta/Ventas/{idventa}/EditarCotizacion', 'VentasController@edit');
-Route::post('/AlquilerVenta/Ventas/{idventa}/Actualizar', 'VentasController@update');
-Route::get('/AlquilerVenta/Ventas/{idventa}/Eliminar', 'VentasController@destroy');
+Route::get('/AlquilerVenta/Ventas/CrearVenta/{idventa}/Productos', 'VentasController@show');
+Route::get('/AlquilerVenta/Ventas/{idventa}/Imprimir', 'VentasController@imprimirVenta');
+Route::post('/AlquilerVenta/Ventas/CrearVenta/{idventa}/Productos', 'VentasController@guardarDventa');
+Route::get('/AlquilerVenta/Ventas/CrearVenta/{idventa}/Productos/{iddventa}/Eliminar', 'VentasController@EliminarDventa');
+Route::get('/AlquilerVenta/Ventas/CrearVenta/{idventa}/Productos/Eliminar', 'VentasController@EliminarVenta');
+Route::get('/AlquilerVenta/Ventas/{idventa}/Eliminar','VentasController@EliminarVenta'); 
 
 //Reporte
 Route::get('/AlquilerVenta/Cotizacion/{idcotizacion}/Imprimir', 'CotizacionController@imprimir');

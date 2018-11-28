@@ -17,8 +17,8 @@ class AlquilerController extends Controller
      */
     public function index()
     {
-        $alquiler = Alquiler::all();
-        return view('alquiler.movimiento.index');
+        $alquileres = Alquiler::all();
+        return view('alquiler.movimiento.index')->with(compact('alquileres'));
     }
 
     /**
@@ -31,7 +31,7 @@ class AlquilerController extends Controller
         $cotizacion = Cotizacion::find($id);
         $cliente = $cotizacion->cliente;
         $producto = $cotizacion->producto;       
-        return view('alquiler.movimiento.registrar')->with(compact('cotizacion'));;
+        return view('alquiler.movimiento.registrar')->with(compact('cotizacion'));
     }
 
     /**
@@ -42,7 +42,15 @@ class AlquilerController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $alquiler= new Alquiler();
+        $alquiler->obra = $request->input('obra');
+        $alquiler->tiempo = $request->input('tiempo');
+        $alquiler->llegada = $request->input('llegada');
+        $alquiler->partida = $request->input('partida'); 
+        $alquiler->cliente_id = $request->input('codcliente');
+        $alquiler->cotizacion_id = $request->input('codcotizacion');
+        $alquiler->save();
+        return redirect('/AlquilerVenta/Alquiler');
     }
 
     /**

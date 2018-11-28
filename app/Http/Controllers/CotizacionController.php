@@ -116,7 +116,7 @@ class CotizacionController extends Controller
         $producto = $cotizacion->producto;
         if ($producto->tipo=='B') {
             $bomba=$producto->bomba;
-            return view('alquiler.reporte.imprimir-cotizacion-b')->with(compact('cotizacion','cliente','producto'));
+            return view('alquiler.reporte.imprimir-cotizacion-b')->with(compact('cotizacion','cliente','bomba'));
         }else{
             if ($producto->tipo=='T'){
             $tablero=$producto->tablero;

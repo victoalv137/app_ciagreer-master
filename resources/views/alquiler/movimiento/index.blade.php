@@ -4,7 +4,7 @@
     <div class="col-md-6">    
         <h3>Alquiler</h3>
     </div>    
-  </div>
+</div>
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -16,22 +16,21 @@
         <th scope="col">Operaciones</th>
       </tr>
     </thead>
-    <tbody>
-        {{-- @foreach ($cotizaciones as $cotizacion) --}}
+  <tbody>
+        @foreach ($alquileres as $alquiler) 
       <tr>                
-        {{-- <td >{{ $cotizacion->codigo}}</td>
-        <td >{{ $cotizacion->cliente->nombreComercial}}</td>
-        <td >{{ $cotizacion->producto->codigo}}</td>
-        <td >{{ $cotizacion->created_at}}</td>
-        <td >{{ $cotizacion->validez}}</td> --}}
+        <td >{{ $alquiler->cotizacion->codigo}}</td>
+        <td >{{ $alquiler->cotizacion->producto->costo}}</td>
+        <td >{{ $alquiler->cliente->nombreComercial}}</td>
+        <td >{{ $alquiler->tiempo}}</td>
+        <td >{{ $alquiler->obra}}</td>      
         <td >
-          {{-- <a href="{{ url('/AlquilerVenta/Cotizacion/'.$cotizacion->id.'/EditarCotizacion') }}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
-          <a href="{{ url('/AlquilerVenta/Cotizacion/'.$cotizacion->id.'/Imprimir') }}" class="btn btn-dark"><i class="fas fa-print"></i> imprimir</a>
-          <a href="{{ url('/AlquilerVenta/Cotizacion/'.$cotizacion->id.'/Alquilar') }}" class="btn btn-info"><i class="fas fa-handshake"></i> Alquilar</a>
-          <a href="{{ url('/AlquilerVenta/Cotizacion/'.$cotizacion->id.'/Eliminar') }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</a> --}}
+          <a href="{{ url('/AlquilerVenta/Cotizacion/'.$alquiler->id.'/EditarCotizacion') }}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
+          <a href="{{ url('/AlquilerVenta/Cotizacion/'.$alquiler->id.'/Imprimir') }}" class="btn btn-dark"><i class="fas fa-print"></i> imprimir</a>          
+          <a href="{{ url('/AlquilerVenta/Cotizacion/'.$alquiler->id.'/Eliminar') }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</a> 
         </td>
       </tr>  
       @endforeach   
-    </tbody>
+    </tbody> 
   </table>
 @stop

@@ -1,6 +1,6 @@
 @extends('alquiler.lyt-alquiler')
 @section('content-alquiler')
-<form method="post" action="{{ url('/Planeamiento/BombaSumergible/Guardar')}}">
+<form method="post" action="{{ url('/AlquilerVenta/Cotizacion/'.$cotizacion->id.'/Alquiler/Guardar')}}">
     {{ csrf_field() }}
  <div class="row">
         <div class="col-md-6">    
@@ -15,10 +15,13 @@
         <div class="col-md-6">
             <label for="">Cotizacion</label>       
         <input type="text" class="form-control" value="{{$cotizacion->codigo}}" name="codigo" disabled>
+        <input type="text" class="form-control" value="{{$cotizacion->id}}" name="codcotizacion" style="display:none;">
         </div>
         <div class="col-md-6">       
                 <label for="">Cliente</label>       
+
         <input type="text" class="form-control" value="{{$cotizacion->cliente->nombreComercial}}" name="cliente" disabled>
+        <input type="text" class="form-control" value="{{$cotizacion->cliente->id}}" name="codcliente" style="display:none;">
         </div>
     </div><br>
     <div class="row">

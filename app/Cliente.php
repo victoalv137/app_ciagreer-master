@@ -12,7 +12,15 @@ class Cliente extends Model
     }
     public function alquiler()
     {
-        return $this->belongsTo('App\Alquiler','cliente_id','id');
+        return $this->hasOne('App\Alquiler','cliente_id','id');
     }
+    public function venta()
+    {
+        return $this->belongsTo('App\Cliente','cliente_id','id');
+    }
+    public function ventas(){
+        return $this->hasmany('App\Venta','cliente_id','id');
+    }
+   
     protected $table = 'cliente';
 }

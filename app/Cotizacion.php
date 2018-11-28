@@ -18,7 +18,7 @@ class Cotizacion extends Model
     }
     public function alquiler()
     {
-        return $this->belongsTo('App\Alquiler','cotizacion_id','id');
+        return $this->hasOne('App\Alquiler','cotizacion_id','id');
     }
     protected $table = 'cotizacion';
 }
