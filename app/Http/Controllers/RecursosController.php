@@ -136,11 +136,7 @@ class RecursosController extends Controller
         $capacitacion = Capacitacion::find($id);  
         return view('recursos.capacitacion.imprimir')->with(compact('capacitacion'));
         
-    }
-    
-
-    
-    
+    }       
   
     /**
      * Display the specified resource.
