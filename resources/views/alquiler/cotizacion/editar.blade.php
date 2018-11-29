@@ -17,13 +17,13 @@
         <label for="">Cliente</label>   
            <select class="form-control" name="cliente">
                @foreach ($clientes as $cliente)
-                    <option value="{{$cotizacion->cliente->id}}">{{$cotizacion->cliente->nombreComercial}}</option>
+                    <option value="{{$cliente->id}}">{{$cliente->nombreComercial}}</option>
                @endforeach                    
             </select><br>
         <label for="">Producto</label>       
              <select class="form-control" name="producto">
                     @foreach ($productos as $producto)
-                    <option value="{{$cotizacion->producto->id}}">{{$cotizacion->producto->codigo}}</option>
+                    <option value="{{$producto->id}}">{{$producto->codigo}}</option>
                     @endforeach
               </select><br>
         </div>

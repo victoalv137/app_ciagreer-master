@@ -24,8 +24,8 @@
       <td >{{ $area->nombre}}</td>
       <td >{{ $area->descripcion}}</td>    
       <td >
-        <a href="{{ url('/RecursosHumanos/Areas/'.$area->id.'/EditarCliente') }}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
-        <a href="{{ url('/RecursosHumanos/Areas/'.$area->id.'/Eliminar') }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</a>
+        <a href="{{ url('/RecursosHumanos/Areas/'.$area->id.'/EditarArea') }}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
+        <a href="{{ url('/RecursosHumanos/Areas/'.$area->id.'/EliminarArea') }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</a>
       </td>
     </tr>  
     @endforeach   

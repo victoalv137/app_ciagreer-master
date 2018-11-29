@@ -14,13 +14,13 @@
 <div class="row">
     <div class="col-md-6">
         <label for="">Codigo</label>       
-        <input type="text" class="form-control" value="{{$ventilador->codigo}}" placeholder="Ingresar Codigo" name="codigo">
+        <input type="text" class="form-control" value="{{$ventilador->producto->codigo}}" placeholder="Ingresar Codigo" name="codigo">
     </div>
     <div class="col-md-6">       
         <label for="">Costo</label>       
         <div class="input-group">                
         <span class="input-group-text">$</span>
-        <input type="text" class="form-control" value="{{$ventilador->costo}}" placeholder="Ingresar Costo Producto" name="costo">      
+        <input type="text" class="form-control" value="{{$ventilador->producto->costo}}" placeholder="Ingresar Costo Producto" name="costo">      
         </div>
     </div>
 </div><br>

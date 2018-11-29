@@ -28,8 +28,8 @@
         <td >{{ $empleado->fechaNacimiento}}</td>
         <td >{{ $empleado->area->nombre}}</td>
         <td >
-          <a href="{{ url('/RecursosHumanos/Empleado/'.$empleado->id.'/EditarCliente') }}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
-          <a href="{{ url('/RecursosHumanos/Empleado/'.$empleado->id.'/Eliminar') }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</a>
+          <a href="{{ url('/RecursosHumanos/Empleado/'.$empleado->id.'/EditarEmpleado') }}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
+          <a href="{{ url('/RecursosHumanos/Empleado/'.$empleado->id.'/EliminarEmpleado') }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</a>
         </td>
       </tr>  
       @endforeach 

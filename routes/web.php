@@ -65,6 +65,10 @@ Route::get('/AlquilerVenta/Cotizacion/{idcotizacion}/Eliminar', 'CotizacionContr
 Route::get('/AlquilerVenta/Alquiler', 'AlquilerController@index');
 Route::get('/AlquilerVenta/Cotizacion/{idcotizacion}/Alquilar', 'AlquilerController@create');
 Route::post('/AlquilerVenta/Cotizacion/{idcotizacion}/Alquiler/Guardar', 'AlquilerController@store');
+Route::get('/AlquilerVenta/Cotizacion/{idcotizacion}/Alquiler/{idalquiler}/EditarAlquiler', 'AlquilerController@edit');
+Route::post('/AlquilerVenta/Cotizacion/{idcotizacion}/Alquiler/{idalquiler}/ActualizarAlquiler', 'AlquilerController@update');
+Route::get('/AlquilerVenta/Cotizacion/{idcotizacion}/Alquiler/{idalquiler}/EliminarAlquiler', 'AlquilerController@destroy');
+
 
 //-------------------------------------------Ventas--------------------------------------//
 Route::get('/AlquilerVenta/Ventas', 'VentasController@index');
@@ -89,6 +93,9 @@ Route::get('/Cliente/{idcliente}/Eliminar', 'ClienteController@destroy');
 Route::get('/RecursosHumanos/Empleados', 'RecursosController@indexEmpleado');
 Route::get('/RecursosHumanos/RegistrarEmpleado', 'RecursosController@createEmpleado');
 Route::post('/RecursosHumanos/Empleado/Guardar', 'RecursosController@storeEmpleado');
+Route::get('/RecursosHumanos/Empleado/{idempleado}/EditarEmpleado', 'RecursosController@editarEmpleado');
+Route::post('/RecursosHumanos/Empleado/{idempleado}/Actualizar', 'RecursosController@actualizarEmpleado');
+Route::get('/RecursosHumanos/Empleado/{idempleado}/EliminarEmpleado', 'RecursosController@eliminarEmpleado');
 //-------------------------------------------Capacitacion--------------------------------------//
 Route::get('/RecursosHumanos/Capacitacion', 'RecursosController@indexCapacitacion');
 Route::get('/RecursosHumanos/Capacitacion/{idcapacitacion}/Imprimir', 'RecursosController@ImprimirCapacitacion');
@@ -103,5 +110,9 @@ Route::get('/RecursosHumanos/Capacitacion/{idcapacitacion}/EliminarCapacitacion'
 Route::get('/RecursosHumanos/Areas', 'RecursosController@indexArea');
 Route::get('/RecursosHumanos/Areas/RegistrarArea', 'RecursosController@createArea');
 Route::post('/RecursosHumanos/Areas/Guardar', 'RecursosController@storeArea');
+Route::get('/RecursosHumanos/Areas/{idarea}/EditarArea', 'RecursosController@editarArea');
+Route::post('/RecursosHumanos/Areas/{idarea}/Actualizar', 'RecursosController@actualizarArea');
+Route::get('/RecursosHumanos/Areas/{idarea}/EliminarArea', 'RecursosController@eliminarArea');
+
 
 

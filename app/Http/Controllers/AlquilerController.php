@@ -72,7 +72,10 @@ class AlquilerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $alquiler=  Alquiler::find($id);
+        $cliente = $alquiler->cotizacion->cliente;
+        $producto =  $alquiler->cotizacion->producto;  
+        return view('alquiler.movimiento.editar')->with(compact('alquiler','cliente','producto'));
     }
 
     /**
@@ -84,7 +87,15 @@ class AlquilerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $alquiler=  Alquiler::find($id);
+        $alquiler->obra = $request->input('obra');
+        $alquiler->tiempo = $request->input('tiempo');
+        $alquiler->llegada = $request->input('llegada');
+        $alquiler->partida = $request->input('partida'); 
+        $alquiler->cliente_id = $request->input('codcliente');
+        $alquiler->cotizacion_id = $request->input('codcotizacion');
+        $alquiler->save();
+        return redirect('/AlquilerVenta/Alquiler');
     }
 
     /**
@@ -95,7 +106,9 @@ class AlquilerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $alquiler = Alquiler::find($id);
+        $alquiler->delete();        
+        return redirect('/AlquilerVenta/Alquiler');
     }
 
 

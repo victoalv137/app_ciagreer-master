@@ -4,7 +4,7 @@
     {{ csrf_field() }}
 <div class="row">
     <div class="col-md-6">    
-        <h3>Registro Tablero</h3>
+        <h3>Actualizar Tablero</h3>
     </div>
     <div class="col-md-1 offset-5 text-right"> 
             <button type="submit" class="btn btn-success text-right"><i class="far fa-save"></i>Actualizar</button>   
@@ -14,13 +14,13 @@
 <div class="row">
     <div class="col-md-6">
         <label for="">Codigo</label>       
-    <input type="text" class="form-control" value="{{$tablero->codigo}}" placeholder="Ingresar Codigo" name="codigo">
+    <input type="text" class="form-control" value="{{$tablero->producto->codigo}}" placeholder="Ingresar Codigo" name="codigo">
     </div>
     <div class="col-md-6">       
         <label for="">Costo</label>       
         <div class="input-group">                
         <span class="input-group-text">$</span>
-        <input type="text" class="form-control" value="{{$tablero->costo}}" placeholder="Ingresar Costo Producto" name="costo">      
+        <input type="text" class="form-control" value="{{$tablero->producto->costo}}" placeholder="Ingresar Costo Producto" name="costo">      
         </div>
     </div>
 </div><br>

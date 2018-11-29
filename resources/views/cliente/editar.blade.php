@@ -1,6 +1,6 @@
 @extends('alquiler.lyt-alquiler')
 @section('content-alquiler')
-<form method="post" action="{{ url('/Cliente/Actualizar')}}">
+<form method="post" action="{{ url('/Cliente/'.$clientes->id.'/Actualizar')}}">
     {{ csrf_field() }}
 <div class="row">
     <div class="col-md-6">    

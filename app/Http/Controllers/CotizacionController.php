@@ -71,8 +71,8 @@ class CotizacionController extends Controller
     public function edit($id)
     {
         $cotizacion = Cotizacion::find($id);
-        $clientes = $cotizacion->cliente;
-        $productos = $cotizacion->producto;
+        $clientes = Cliente::all();
+        $productos = Producto::all();
         return view('alquiler.cotizacion.editar')->with(compact('cotizacion','clientes','productos'));
     }
 

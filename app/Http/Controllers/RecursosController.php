@@ -46,6 +46,62 @@ class RecursosController extends Controller
     {
         return view('area.registrar');
     }
+    public function editarArea($id)
+    {
+        $area=Area::find($id);
+        return view('area.editar')->with(compact('area'));
+    }
+    public function actualizarArea(Request $request,$id)
+    {
+        $area = Area::find($id);            
+        $area->codigo = $request->input('codigo');       
+        $area->nombre = $request->input('nombre');   
+        $area->descripcion = $request->input('descripcion');      
+        $area->save();
+        return redirect('/RecursosHumanos/Areas');
+        
+    }
+    public function eliminarArea($id)
+    {
+        $area = Area::find($id);
+        $area->delete();        
+        return redirect('/RecursosHumanos/Areas');
+    }
+    public function editarEmpleado($id)
+    {
+        $empleado=Empleado::find($id);
+        $areas=Area::all();
+        return view('recursos.personal.editar')->with(compact('empleado','areas'));
+    }
+    public function actualizarEmpleado(Request $request,$id)
+    {
+        $empleado = Empleado::find($id);            
+        $name='';
+        if($request->hasFile('cv')){
+            $file=$request->file('cv');
+            $name =$file->getClientOriginalName();
+            $file->move(public_path().'/cv/',$name);
+            
+        }
+        $empleado->nombres = $request->input('nombres');       
+        $empleado->apellidos = $request->input('apellidos');   
+        $empleado->dni = $request->input('dni');  
+        $empleado->sexo = $request->input('sexo');  
+        $empleado->direccion = $request->input('direccion');          
+        $empleado->telefono = $request->input('telefono'); 
+        $empleado->fechaNacimiento = $request->input('fecha');  
+        $empleado->area_id = $request->input('area');
+        $empleado->cv=$name;  
+        $empleado->save();
+        return redirect('/RecursosHumanos/Empleados');
+        
+    }
+    public function eliminarEmpleado($id)
+    {
+        $empleado = Empleado::find($id);
+        $empleado->delete();        
+        return redirect('/RecursosHumanos/Empleados');
+    }
     public function createCapacitacion()  
     {
         return view('recursos.capacitacion.registrar');

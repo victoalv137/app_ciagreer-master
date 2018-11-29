@@ -2,7 +2,7 @@
 @section('content-planeamiento')
 <div class="row">
   <div class="col-md-6">    
-      <h3>Bombas Sumergibles</h3>
+      <h3>Repuestos</h3>
   </div>
   <div class="col-md-1 offset-5 text-right"> 
       <a href="{{ url('/Planeamiento/Repuesto/Registrar') }}" class="btn btn-success text-right"><i class="fas fa-plus-square"></i> Registrar</a>            

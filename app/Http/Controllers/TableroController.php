@@ -40,6 +40,7 @@ class TableroController extends Controller
         $producto = new Producto();
         $producto->codigo = $request->input('codigo');
         $producto->costo = $request->input('costo');
+        $producto->tipo ='T';
         $tablero = new Tablero();
         $tablero->marca = $request->input('marcaid');
         $tablero->modelo = $request->input('modelo');
@@ -67,8 +68,7 @@ class TableroController extends Controller
      */
     public function edit($id)
     {
-        $tablero = Tablero::find($id);
-        $producto->tipo ='T';
+        $tablero = Tablero::find($id);    
         return view('planeamiento.tablero.editar')->with(compact('tablero'));
     }
 

@@ -25,9 +25,9 @@
         <td >{{ $alquiler->tiempo}}</td>
         <td >{{ $alquiler->obra}}</td>      
         <td >
-          <a href="{{ url('/AlquilerVenta/Cotizacion/'.$alquiler->id.'/EditarCotizacion') }}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
+          <a href="{{ url('/AlquilerVenta/Cotizacion/'.$alquiler->cotizacion->id.'/Alquiler/'.$alquiler->id.'/EditarAlquiler') }}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
           <a href="{{ url('/AlquilerVenta/Cotizacion/'.$alquiler->id.'/Imprimir') }}" class="btn btn-dark"><i class="fas fa-print"></i> imprimir</a>          
-          <a href="{{ url('/AlquilerVenta/Cotizacion/'.$alquiler->id.'/Eliminar') }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</a> 
+          <a href="{{ url('/AlquilerVenta/Cotizacion/'.$alquiler->cotizacion->id.'/Alquiler/'.$alquiler->id.'/EliminarAlquiler') }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</a> 
         </td>
       </tr>  
       @endforeach   
