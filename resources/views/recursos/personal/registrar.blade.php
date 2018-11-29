@@ -1,5 +1,5 @@
-@extends('alquiler.lyt-alquiler')
-@section('content-alquiler')
+@extends('recursos.lyt-recursos')
+@section('content-Recursos')
 <form method="post" action="{{ url('/RecursosHumanos/Empleado/Guardar')}}">
     {{ csrf_field() }}
 <div class="row">

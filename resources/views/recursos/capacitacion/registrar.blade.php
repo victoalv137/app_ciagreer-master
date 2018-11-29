@@ -1,5 +1,5 @@
 @extends('recursos.lyt-recursos')
-@section('content-alquiler')
+@section('content-Recursos')
 <form method="post" action="{{ url('/RecursosHumanos/Capacitacion/Guardar')}}">
 {{ csrf_field() }}
 <div class="row">
@@ -14,7 +14,7 @@
 <div class="row">
     <div class="col-md-6">
         <label for="">Tema Capacitacion</label>       
-        <input type="text" class="form-control" placeholder="Ingresar Codigo Venta" name="tema">
+        <input type="text" class="form-control" placeholder="Ingresar Tema Capacitacion" name="tema">
     </div>
     <div class="col-md-6">       
             <label for="">Fecha Inicio</label>       

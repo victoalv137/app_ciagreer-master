@@ -111,11 +111,35 @@ class RecursosController extends Controller
     public function VerParticipantes($idcapacitacion)    
     {
         $capacitacion = Capacitacion::find($idcapacitacion);        
-        $empleados =Empleado::all(); 
-        // $detallecapacitaciones = $capacitacion->dcapacitacion;          
+        $empleados =Empleado::all();  
         return view('recursos.capacitacion.participantes')->with(compact('capacitacion','empleados'));
     }
+    public function EliminarParticipante($idcapacitacion,$idempleado)    
+    {
+        $capacitacion = Capacitacion::find($idcapacitacion); 
+        $capacitacion->empleados()->detach($idempleado);
+        return redirect()->back();
+    }
+    public function EliminarCapacitacion($idcapacitacion)    
+    {
+        $capacitacion = Capacitacion::find($idcapacitacion); 
+        foreach ($capacitacion->empleados as $empleadosC) {
+            $capacitacion->empleados()->detach($empleadosC);
+        } 
+        $capacitacion->delete();
+        return redirect('/RecursosHumanos/Capacitacion');   
+      
+    }
 
+    public function ImprimirCapacitacion($id)    
+    {
+        $capacitacion = Capacitacion::find($id);  
+        return view('recursos.capacitacion.imprimir')->with(compact('capacitacion'));
+        
+    }
+    
+
+    
     
   
     /**

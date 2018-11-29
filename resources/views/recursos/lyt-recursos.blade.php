@@ -1,19 +1,19 @@
 @extends('layouts.layoutmodulo')
 @section('title','Recursos Humanos')
-@section('section','Alquiler')
+@section('section','Recursos Humanos')
 @section('content')
 <div class="container-fluid">
   <div class="row">
       <div class="col-md-2">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link active" href="{{ url('/RecursosHumanos/Personal') }}"><i class="fas fa-box"></i> Cotizacion</a>
+              <a class="nav-link active" href="{{ url('/RecursosHumanos/Empleados') }}"><i class="fas fa-male"></i> Empleados</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('/AlquilerVenta/Alquiler') }}"><i class="fas fa-archive"></i> Alquiler</a>
+              <a class="nav-link" href="{{ url('/RecursosHumanos/Capacitacion') }}"><i class="fas fa-graduation-cap"></i> Capacitacion</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('/AlquilerVenta/Ventas') }}"><i class="fas fa-cart-plus"></i> Ventas</a>
+              <a class="nav-link" href="{{ url('/RecursosHumanos/Areas') }}"><i class="far fa-list-alt"></i> Areas</a>
             </li>                                  
           </ul>
         </div>
@@ -21,7 +21,7 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-12">                                   
-                   @yield('content-alquiler')                     
+                   @yield('content-Recursos')                     
               </div>
             </div>
           </div>          

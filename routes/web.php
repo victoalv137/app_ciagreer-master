@@ -91,10 +91,14 @@ Route::get('/RecursosHumanos/RegistrarEmpleado', 'RecursosController@createEmple
 Route::post('/RecursosHumanos/Empleado/Guardar', 'RecursosController@storeEmpleado');
 //-------------------------------------------Capacitacion--------------------------------------//
 Route::get('/RecursosHumanos/Capacitacion', 'RecursosController@indexCapacitacion');
+Route::get('/RecursosHumanos/Capacitacion/{idcapacitacion}/Imprimir', 'RecursosController@ImprimirCapacitacion');
 Route::get('/RecursosHumanos/Capacitacion/RegistrarCapacitacion', 'RecursosController@createCapacitacion');
 Route::get('/RecursosHumanos/Capacitacion/RegistrarCapacitacion/{idcapacitacion}/Participantes', 'RecursosController@VerParticipantes');
 Route::post('/RecursosHumanos/Capacitacion/Guardar', 'RecursosController@storeCapacitacion');
 Route::post('/RecursosHumanos/Capacitacion/RegistrarCapacitacion/{idcapacitacion}/Participantes', 'RecursosController@Participantes');
+Route::get('/RecursosHumanos/Capacitacion/RegistrarCapacitacion/{idcapacitacion}/Participantes/{iddetallecapacitacion}/Eliminar', 'RecursosController@EliminarParticipante');
+Route::get('/RecursosHumanos/Capacitacion/RegistrarCapacitacion/{idcapacitacion}/Participantes/EliminarCapacitacion', 'RecursosController@EliminarCapacitacion');
+Route::get('/RecursosHumanos/Capacitacion/{idcapacitacion}/EliminarCapacitacion', 'RecursosController@EliminarCapacitacion');
 //-------------------------------------------Area--------------------------------------//
 Route::get('/RecursosHumanos/Areas', 'RecursosController@indexArea');
 Route::get('/RecursosHumanos/Areas/RegistrarArea', 'RecursosController@createArea');

@@ -1,5 +1,5 @@
-@extends('planeamiento.lyt-planeamiento')
-@section('content-planeamiento')
+@extends('recursos.lyt-recursos')
+@section('content-Recursos')
 <form method="post" action="{{ url('/RecursosHumanos/Capacitacion/RegistrarCapacitacion/'.$capacitacion->id.'/Participantes')}}">
 {{ csrf_field() }}
 <div class="row">
@@ -14,11 +14,11 @@
 <div class="row">
     <div class="col-md-6">
         <label for="">Codigo Capacitacion</label>       
-        <input type="text" class="form-control" value ="{{$capacitacion->codigo}}" placeholder="Ingresar Codigo Venta" name="codigo" disabled>
+        <input type="text" class="form-control" value ="{{$capacitacion->tema}}"   disabled>
     </div>
     <div class="col-md-6">       
         <label for="">Fecha Inicio</label>   
-        <input type="text" class="form-control"  value ="{{$capacitacion->fechaInicio}}" placeholder="Ingresar Codigo Venta" name="codigo" disabled>
+        <input type="text" class="form-control"  value ="{{$capacitacion->fechaInicio}}"  name="codigo" disabled>
     </div>
 </div><br>
 <div class="row">
@@ -29,10 +29,10 @@
              <option value="{{$empleado->id}}">{{$empleado->nombres.' '.$empleado->apellidos}}</option>
         @endforeach                    
      </select>
-    </div><br>   
-     <div class="col-md-0 offset-3 text-right">   
+    </div><br>  
+     <div class="col-md-0 offset-1 text-right">   
         <button type="submit" class="btn btn-success text-right"><i class="fas fa-plus-circle"></i> Agregar Participantes</button>          
-        <a href="{{ url('/AlquilerVenta/Ventas/CrearVenta/'.$capacitacion->id.'/Productos/Eliminar') }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Cancelar Capacitacion</a>
+        <a href="{{ url('/RecursosHumanos/Capacitacion/RegistrarCapacitacion/'.$capacitacion->id.'/Participantes/EliminarCapacitacion') }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Cancelar Capacitacion</a>
 
     </div>
 </div>
@@ -54,7 +54,7 @@
         <td >{{ $empleadosC->dni}}</td>
         <td >{{ $empleadosC->area->nombre}}</td>     
         <td > 
-          <a href="{{ url('/AlquilerVenta/Ventas/CrearVenta/'.$empleadosC->id.'/Productos/'.$empleadosC->id.'/Eliminar') }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</a>
+          <a href="{{ url('/RecursosHumanos/Capacitacion/RegistrarCapacitacion/'.$capacitacion->id.'/Participantes/'.$empleadosC->id.'/Eliminar') }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</a>
         </td>
       </tr>  
        @endforeach  

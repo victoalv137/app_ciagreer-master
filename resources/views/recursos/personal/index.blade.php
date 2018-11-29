@@ -1,5 +1,5 @@
 @extends('recursos.lyt-recursos')
-@section('content-alquiler')
+@section('content-Recursos')
 <div class="row">
   <div class="col-md-6">    
       <h3>Empleados</h3>

@@ -54,7 +54,7 @@
         <td >{{ $dventa->repuesto->descripcion}}</td>
         <td >{{ $dventa->repuesto->costo}}</td>     
         <td > 
-          <a href="{{ url('/AlquilerVenta/Ventas/CrearVenta/'.$dventa->id.'/Productos/'.$dventa->id.'/Eliminar') }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</a>
+          <a href="{{ url('/AlquilerVenta/Ventas/CrearVenta/'.$venta->id.'/Productos/'.$dventa->id.'/Eliminar') }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</a>
         </td>
       </tr>  
        @endforeach  
