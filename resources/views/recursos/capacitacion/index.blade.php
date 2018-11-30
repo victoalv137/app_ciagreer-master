@@ -30,7 +30,7 @@
 
         <td>{{ count($capacitacion->empleados) }}</td>     
         <td>
-          <a href="{{ url('/RecursosHumanos/Capacitacion/'.$capacitacion->id.'/EditarCliente') }}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
+          <a href="{{ url('/RecursosHumanos/Capacitacion/'.$capacitacion->id.'/EditarCapacitacion') }}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
           <a href="{{ url('/RecursosHumanos/Capacitacion/'.$capacitacion->id.'/Imprimir') }}" class="btn btn-secondary"><i class="fas fa-print"></i> Imprimir</a>
           <a href="{{ url('/RecursosHumanos/Capacitacion/'.$capacitacion->id.'/EliminarCapacitacion') }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</a>
         </td>

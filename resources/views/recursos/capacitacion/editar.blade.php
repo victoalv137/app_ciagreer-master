@@ -1,26 +1,35 @@
 @extends('recursos.lyt-recursos')
 @section('content-Recursos')
-<form method="post" action="{{ url('/RecursosHumanos/Capacitacion/RegistrarCapacitacion/'.$capacitacion->id.'/Participantes')}}">
+<form method="post" action="{{ url('/RecursosHumanos/Capacitacion/'.$capacitacion->id.'/Actualizar')}}">
 {{ csrf_field() }}
 <div class="row">
     <div class="col-md-6">    
         <h3>Registro Capacitacion</h3>
     </div>
     <div class="col-md-1 offset-4 text-right">        
-        <a href="{{ url('/RecursosHumanos/Capacitacion') }}" class="btn btn-success text-right"><i class="far fa-save"></i> Guardar</a>
+        <button type="submit" class="btn btn-success text-right"><i class="fas fa-plus-circle"></i> Actualizar</button>          
+
     </div><br><br>
 </div>
 <h4>Capacitacion</h4>
 <div class="row">
     <div class="col-md-6">
-        <label for="">Codigo Capacitacion</label>       
-        <input type="text" class="form-control" value ="{{$capacitacion->tema}}"   disabled>
+        <label for="">Tema Capacitacion</label>       
+        <input type="text" class="form-control" value ="{{$capacitacion->tema}}" name="tema"  >
     </div>
     <div class="col-md-6">       
         <label for="">Fecha Inicio</label>   
-        <input type="text" class="form-control"  value ="{{$capacitacion->fechaInicio}}"  name="codigo" disabled>
+        <input type="text" class="form-control"  value ="{{$capacitacion->fechaInicio}}"  name="fechainicio" >
+    </div>
+    <div class="col-md-6">       
+        <label for="">Fecha Fin</label>   
+        <input type="text" class="form-control"  value ="{{$capacitacion->fechaFin}}"  name="fechafin" >
     </div>
 </div><br>
+
+</form>
+<form method="post" action="{{ url('/RecursosHumanos/Capacitacion/'.$capacitacion->id.'/EditarCapacitacion/Participantes')}}">
+    {{ csrf_field() }}
 <div class="row">
     <div class="col-md-6">       
     <label for="">Participantes</label>   

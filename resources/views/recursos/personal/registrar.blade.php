@@ -1,5 +1,14 @@
 @extends('recursos.lyt-recursos')
 @section('content-Recursos')
+@if ($errors->any())
+                <div class="alert alert-danger">
+                  <ul>
+                    @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                    @endforeach
+                  </ul>
+                </div>
+              @endif
 <form method="post" action="{{ url('/RecursosHumanos/Empleado/Guardar')}}">
     {{ csrf_field() }}
 <div class="row">
@@ -16,7 +25,7 @@
         <label for="">Nombre Completo</label>       
         <input type="text" class="form-control" placeholder="Ingresar Nomnbre Comercial" name="nombres"><br>
         <label for="">DNI</label>       
-        <input type="text" class="form-control" placeholder="Ingresar RUC" name="dni"><br>
+        <input type="number" min="1" step="1" class="form-control" placeholder="Ingresar RUC" name="dni"><br>
         <label for="">Sexo</label>       
         <select class="form-control" name="sexo">           
                  <option value="F">Femenino</option>   
@@ -37,7 +46,7 @@
         <label for="">Direccion</label>       
         <input type="text" class="form-control" placeholder="Ingresar direccion" name="direccion"><br>  
         <label for="">Telefono</label>       
-        <input type="text" class="form-control" placeholder="Ingresar direccion" name="telefono"><br>  
+        <input type="number" min="1" step="1" class="form-control" placeholder="Ingresar direccion" name="telefono"><br>  
         <label for="">Fecha Nacimiento</label>       
         <input type="date" class="form-control" placeholder="Ingresar direccion" name="fecha">  
     </div>

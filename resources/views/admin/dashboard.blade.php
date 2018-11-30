@@ -33,39 +33,23 @@
   <section id="posts">
     <div class="container">
       <div class="row">
-        {{-- <div class="col-md-9">
-          <div class="card">
-            <div class="card-header">
-              <h4>Listado de Empresas</h4>
-            </div>
-            <table class="table table-striped">
-              <thead class="thead-dark">
-                <tr>
-                  <th>#</th>
-                  <th>Razon Social</th>
-                  <th>Ruc</th>
-                  <th>Fecha de Registro</th>
-                  <th>Ver detalle</th>
-                </tr>
-              </thead>
-              <tbody>
-              @foreach ($empresas as $empresa)
-                <tr>
-                  <td>{{ $empresa->id}}</td>
-                  <td>{{ $empresa->razon_Social}}</td>
-                  <td>{{ $empresa->ruc}}</td>
-                  <td>{{ $empresa->created_at}}</td>
-                  <td>
-                    <a href="{{ url('admin/empresas/')}}" class="btn btn-outline-primary">>>Ver Detalle</a>
-                  </td>
-                </tr>
-                @endforeach
-              </tbody>
-            </table>
-          </div>
-        </div> --}}
+
+
+        
+
         <div class="col-md-3">
-          <div class="card text-center bg-info text-white mb-3">
+          <div class="card text-center bg-success text-white mb-3">
+            <div class="card-body">
+              <h4>Planeamiento y control</h4>
+              <h4 class="display-4">
+                <i class="fas fa-building"></i>
+              </h4>
+              <a href="{{url('/Planeamiento')}}" class="btn btn-outline-light btn-sm">Ver</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card text-center bg-primary text-white mb-3">
             <div class="card-body">
               <h3>Inventario</h3>
               <h4 class="display-4">
@@ -75,29 +59,9 @@
             </div>
           </div>
         </div>
+
         <div class="col-md-3">
-          <div class="card text-center bg-info text-white mb-3">
-            <div class="card-body">
-              <h3>Seguridad</h3>
-              <h4 class="display-4">
-              <i class="fas fa-lock"></i>
-              </h4>
-              <a href="{{url('/Seguridad')}}" class="btn btn-outline-light btn-sm">Ver</a>
-            </div>
-          </div>
-        </div>
-          <!-- <div class="card text-center bg-success text-white mb-3">
-            <div class="card-body">
-              <h3>Categories</h3>
-              <h4 class="display-4">
-                <i class="fas fa-folder"></i> 4
-              </h4>
-              <a href="categories.html" class="btn btn-outline-light btn-sm">View</a>
-            </div>
-          </div> -->
-          {{-- @can('admin.register') --}}
-        <div class="col-md-3">
-          <div class="card text-center bg-success text-white mb-3">
+          <div class="card text-center bg-primary text-white mb-3">
             <div class="card-body">
               <h3>Alquiler y Ventas</h3>
               <h4 class="display-4">
@@ -106,14 +70,14 @@
               <a href="{{url('/AlquilerVenta')}}" class="btn btn-outline-light btn-sm">Ver</a>
             </div>
           </div>
-          {{-- @endcan --}}
+
         </div>
         <div class="col-md-3">
-          <div class="card text-center bg-warning text-white mb-3">
+          <div class="card text-center bg-success text-white mb-3">
             <div class="card-body">
-              <h3>Seguridad</h3>
+              <h3>Presupuesto</h3>
               <h4 class="display-4">
-              <i class="fas fa-lock"></i>
+                <i class="fas fa-dollar-sign"></i>
               </h4>
               <a href="{{url('/admin/Seguridad')}}" class="btn btn-outline-light btn-sm">Ver</a>
             </div>
@@ -121,7 +85,7 @@
           {{-- @endcan --}}
         </div>
         <div class="col-md-3">
-          <div class="card text-center bg-secondary text-white mb-3">
+          <div class="card text-center bg-info text-white mb-3">
             <div class="card-body">
               <h4>Recursos Humanos</h4>
               <h4 class="display-4">
@@ -133,11 +97,34 @@
           {{-- @endcan --}}
         </div>
         <div class="col-md-3">
+          <div class="card text-center bg-danger text-white mb-3">
+            <div class="card-body">
+              <h3>Mantemiento</h3>
+              <h4 class="display-4">
+                <i class="fas fa-cogs"></i>
+              </h4>
+              <a href="{{url('/admin')}}" class="btn btn-outline-light btn-sm">Ver</a>
+            </div>
+          </div>
+          {{-- @endcan --}}
+        </div>
+        <div class="col-md-3">
+          <div class="card text-center bg-danger text-white mb-3">
+            <div class="card-body">
+              <h3>Seguridad</h3>
+              <h4 class="display-4">
+              <i class="fas fa-lock"></i>
+              </h4>
+              <a href="{{url('/Seguridad')}}" class="btn btn-outline-light btn-sm">Ver</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
           <div class="card text-center bg-warning text-white mb-3">
             <div class="card-body">
-              <h3>Ventas</h3>
+              <h5>Requerimientos de TI</h5>
               <h4 class="display-4">
-                <i class="fas fa-cog"></i>
+                <i class="fas fa-laptop"></i>
               </h4>
               <a href="{{url('/admin')}}" class="btn btn-outline-light btn-sm">Ver</a>
             </div>
@@ -147,9 +134,9 @@
         <div class="col-md-3">
           <div class="card text-center bg-warning text-white mb-3">
             <div class="card-body">
-              <h3>Ventas</h3>
+              <h3>Soporte de TI</h3>
               <h4 class="display-4">
-                <i class="fas fa-cog"></i>
+                <i class="fas fa-database"></i>
               </h4>
               <a href="{{url('/admin')}}" class="btn btn-outline-light btn-sm">Ver</a>
             </div>
@@ -157,11 +144,11 @@
           {{-- @endcan --}}
         </div>
         <div class="col-md-3">
-          <div class="card text-center bg-warning text-white mb-3">
+          <div class="card text-center text-white bg-dark mb-3">
             <div class="card-body">
-              <h3>Ventas</h3>
+              <h5>Gestion de Almacenamiento</h5>
               <h4 class="display-4">
-                <i class="fas fa-cog"></i>
+                <i class="fas fa-server"></i>
               </h4>
               <a href="{{url('/admin')}}" class="btn btn-outline-light btn-sm">Ver</a>
             </div>
@@ -169,11 +156,11 @@
           {{-- @endcan --}}
         </div>
         <div class="col-md-3">
-          <div class="card text-center bg-warning text-white mb-3">
+          <div class="card text-center text-white bg-dark mb-3">
             <div class="card-body">
-              <h3>Ventas</h3>
+              <h3>Gestion de Pagos</h3>
               <h4 class="display-4">
-                <i class="fas fa-cog"></i>
+                <i class="far fa-building"></i>r
               </h4>
               <a href="{{url('/admin')}}" class="btn btn-outline-light btn-sm">Ver</a>
             </div>
@@ -181,11 +168,11 @@
           {{-- @endcan --}}
         </div>
         <div class="col-md-3">
-          <div class="card text-center bg-warning text-white mb-3">
+          <div class="card text-center text-white bg-dark mb-3">
             <div class="card-body">
-              <h3>Ventas</h3>
+              <h3>Gestion de Recursos</h3>
               <h4 class="display-4">
-                <i class="fas fa-cog"></i>
+                <i class="far fa-clock"></i>
               </h4>
               <a href="{{url('/admin')}}" class="btn btn-outline-light btn-sm">Ver</a>
             </div>
@@ -193,11 +180,11 @@
           {{-- @endcan --}}
         </div>
         <div class="col-md-3">
-          <div class="card text-center bg-warning text-white mb-3">
+          <div class="card text-center bg-light mb-3">
             <div class="card-body">
-              <h3>Ventas</h3>
+              <h3>Facturacion</h3>
               <h4 class="display-4">
-                <i class="fas fa-cog"></i>
+                <i class="fas fa-hand-holding-usd"></i>
               </h4>
               <a href="{{url('/admin')}}" class="btn btn-outline-light btn-sm">Ver</a>
             </div>
@@ -205,11 +192,11 @@
           {{-- @endcan --}}
         </div>
         <div class="col-md-3">
-          <div class="card text-center bg-warning text-white mb-3">
+          <div class="card text-center bg-light mb-3">
             <div class="card-body">
-              <h3>Ventas</h3>
+              <h3>Cobranza</h3>
               <h4 class="display-4">
-                <i class="fas fa-cog"></i>
+                <i class="fas fa-hand-holding-usd"></i>
               </h4>
               <a href="{{url('/admin')}}" class="btn btn-outline-light btn-sm">Ver</a>
             </div>

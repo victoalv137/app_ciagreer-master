@@ -36,7 +36,9 @@
                 <tr>
                     <th>Codigo</th>
                     <th>Repuesto</th>
-                    <th>costo</th>                    
+                    <th>Costo</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>           
                 </tr>
             </thead>
 
@@ -45,11 +47,14 @@
                         <tr>
                             <td style="text-align: center">{{ $dventa->repuesto->codigo }}</td>
                             <td style="text-align: center">{{ $dventa->repuesto->descripcion }}</td>
-                            <td style="text-align: center">{{ $dventa->repuesto ->costo}}</td>
-                          
+                            <td style="text-align: center">{{ $dventa->repuesto->costo}}</td>
+                            <td style="text-align: center">{{ $dventa->cantidad}}</td>
+                            <td style="text-align: center">{{ $dventa->cantidad*$dventa->repuesto->costo}}</td>
                         </tr>
                     @endforeach
                     <tr>
+                        <td></td>
+                        <td></td>
                         <td></td>
                         <td style="text-align: center">total</td>
                         <td style="text-align: center">{{$sum}}</td>

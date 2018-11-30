@@ -106,6 +106,9 @@ Route::post('/RecursosHumanos/Capacitacion/RegistrarCapacitacion/{idcapacitacion
 Route::get('/RecursosHumanos/Capacitacion/RegistrarCapacitacion/{idcapacitacion}/Participantes/{iddetallecapacitacion}/Eliminar', 'RecursosController@EliminarParticipante');
 Route::get('/RecursosHumanos/Capacitacion/RegistrarCapacitacion/{idcapacitacion}/Participantes/EliminarCapacitacion', 'RecursosController@EliminarCapacitacion');
 Route::get('/RecursosHumanos/Capacitacion/{idcapacitacion}/EliminarCapacitacion', 'RecursosController@EliminarCapacitacion');
+Route::get('/RecursosHumanos/Capacitacion/{idcapacitacion}/EditarCapacitacion', 'RecursosController@editarCapacitacion');
+Route::post('/RecursosHumanos/Capacitacion/{idcapacitacion}/Actualizar', 'RecursosController@actualizarCapacitacion');
+Route::post('/RecursosHumanos/Capacitacion/{idcapacitacion}/EditarCapacitacion/Participantes', 'RecursosController@Participantes');
 //-------------------------------------------Area--------------------------------------//
 Route::get('/RecursosHumanos/Areas', 'RecursosController@indexArea');
 Route::get('/RecursosHumanos/Areas/RegistrarArea', 'RecursosController@createArea');

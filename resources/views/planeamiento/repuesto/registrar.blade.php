@@ -1,5 +1,14 @@
 @extends('planeamiento.lyt-planeamiento')
 @section('content-planeamiento')
+@if ($errors->any())
+                <div class="alert alert-danger">
+                  <ul>
+                    @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                    @endforeach
+                  </ul>
+                </div>
+              @endif
 <form method="post" action="{{ url('/Planeamiento/Repuesto/Guardar')}}">
 {{ csrf_field() }}
 <div class="row">
@@ -34,7 +43,7 @@
         </div>
         <div class="col-md-6">
             <label for="">Costo</label>       
-             <input type="text" class="form-control" placeholder="Ingresar Costo" name="costo">
+             <input type="number" min="1" step="any" class="form-control" placeholder="Ingresar Costo" name="costo">
         </div>
         
 </div>

@@ -42,6 +42,23 @@ class AlquilerController extends Controller
      */
     public function store(Request $request)
     {
+
+        $messages = [
+            'obra.required' => 'Es necesario ingresar la obra.',
+            'tiempo.required' => 'Es necesario el tiempo.',
+            'llegada.required' => 'Es necesario ingresar el lugar de llegada.',
+            'partida.required' => 'Es necesario ingresar el lugar de partida',
+        ];
+
+        $rules = [
+            'obra' => 'required',
+            'tiempo' => 'required',
+            'llegada' => 'required',
+            'partida' => 'required',
+        ];
+        $this->validate($request, $rules, $messages);
+
+
         $alquiler= new Alquiler();
         $alquiler->obra = $request->input('obra');
         $alquiler->tiempo = $request->input('tiempo');
@@ -87,6 +104,23 @@ class AlquilerController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $messages = [
+            'obra.required' => 'Es necesario ingresar la obra.',
+            'tiempo.required' => 'Es necesario el tiempo.',
+            'llegada.required' => 'Es necesario ingresar el lugar de llegada.',
+            'partida.required' => 'Es necesario ingresar el lugar de partida',
+        ];
+
+        $rules = [
+            'obra' => 'required',
+            'tiempo' => 'required',
+            'llegada' => 'required',
+            'partida' => 'required',
+        ];
+        $this->validate($request, $rules, $messages);
+        
+
         $alquiler=  Alquiler::find($id);
         $alquiler->obra = $request->input('obra');
         $alquiler->tiempo = $request->input('tiempo');

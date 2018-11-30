@@ -41,6 +41,18 @@ class VentasController extends Controller
      */
     public function store(Request $request)
     {
+
+        $messages = [
+            'codigo.required' => 'Es necesario ingresar el codigo de la Venta.',
+        ];
+
+        $rules = [
+            'codigo' => 'required',
+
+        ];
+        $this->validate($request, $rules, $messages);
+
+
         $venta= new Venta();
         $venta->codigo = $request->input('codigo');       
         $venta->cliente_id = $request->input('cliente');       
@@ -79,9 +91,22 @@ class VentasController extends Controller
         // $foda->Descripcion = $request->input('Descripcion');
         // $empresa->fodas()->save($foda);
         // return redirect()->back();
+
+
+        $messages = [
+            'cantidad.required' => 'Es necesario ingresar la cantidad del repuesto.',
+        ];
+
+        $rules = [
+            'cantidad' => 'required',
+
+        ];
+        $this->validate($request, $rules, $messages);
+
         $venta = Venta::find($idventa);
         $dventa = new Dventa();
         $dventa->repuesto_id = $request->input('repuesto');
+        $dventa->cantidad = $request->input('cantidad');
         $venta->dventa()->save($dventa);
         return redirect()->back();
     }
@@ -127,7 +152,7 @@ class VentasController extends Controller
         $dventas= $venta->dventa;
         foreach ($dventas as $dventa) {
             
-            $sum=$sum+$dventa->repuesto->costo;
+            $sum=$sum+($dventa->repuesto->costo*$dventa->cantidad);
         }
         
         return view('alquiler.ventas.imprimir')->with(compact('venta','dventas','sum'));

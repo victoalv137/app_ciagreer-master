@@ -1,5 +1,14 @@
 @extends('planeamiento.lyt-planeamiento')
 @section('content-planeamiento')
+@if ($errors->any())
+                <div class="alert alert-danger">
+                  <ul>
+                    @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                    @endforeach
+                  </ul>
+                </div>
+              @endif
 <form method="post" action="{{ url('/Planeamiento/Tablero/'.$tablero->id.'/Actualizar')}}">
     {{ csrf_field() }}
 <div class="row">
@@ -20,7 +29,7 @@
         <label for="">Costo</label>       
         <div class="input-group">                
         <span class="input-group-text">$</span>
-        <input type="text" class="form-control" value="{{$tablero->producto->costo}}" placeholder="Ingresar Costo Producto" name="costo">      
+        <input type="number" min="1" step="any" class="form-control" value="{{$tablero->producto->costo}}" placeholder="Ingresar Costo Producto" name="costo">      
         </div>
     </div>
 </div><br>

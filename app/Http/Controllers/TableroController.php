@@ -37,6 +37,24 @@ class TableroController extends Controller
      */
     public function store(Request $request)
     {
+        $messages = [
+            'codigo.required' => 'Es necesario ingresar el código del tablero.',
+            'costo.required' => 'Es necesario ingresar el costo del tablero.',
+            'modelo.required' => 'Es necesario ingresar el modelo del tablero.',
+        ];
+
+        $rules = [
+            'codigo' => 'required',
+            'costo' => 'required',
+            'modelo' => 'required',
+
+        ];
+        $this->validate($request, $rules, $messages);
+
+
+
+
+
         $producto = new Producto();
         $producto->codigo = $request->input('codigo');
         $producto->costo = $request->input('costo');
@@ -81,9 +99,24 @@ class TableroController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $messages = [
+            'codigo.required' => 'Es necesario ingresar el código del tablero.',
+            'costo.required' => 'Es necesario ingresar el costo del tablero.',
+            'modelo.required' => 'Es necesario ingresar el modelo del tablero.',
+        ];
+
+        $rules = [
+            'codigo' => 'required',
+            'costo' => 'required',
+            'modelo' => 'required',
+
+        ];
+        $this->validate($request, $rules, $messages);
+
+
         $tablero = Tablero::find($id);
-        $tablero->codigo = $request->input('codigo');
-        $tablero->costo = $request->input('costo');
+        $tablero->producto->codigo = $request->input('codigo');
+        $tablero->producto->costo = $request->input('costo');
         $tablero->marca = $request->input('marcaid');
         $tablero->modelo = $request->input('modelo');
         $tablero->save();

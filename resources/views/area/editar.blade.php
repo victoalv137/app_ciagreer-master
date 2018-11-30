@@ -1,5 +1,14 @@
 @extends('recursos.lyt-recursos')
 @section('content-Recursos')
+@if ($errors->any())
+                <div class="alert alert-danger">
+                  <ul>
+                    @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                    @endforeach
+                  </ul>
+                </div>
+              @endif
 <form method="post" action="{{ url('/RecursosHumanos/Areas/'.$area->id.'/Actualizar')}}">
 {{ csrf_field() }}
 <div class="row">

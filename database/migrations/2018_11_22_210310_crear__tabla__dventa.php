@@ -18,7 +18,8 @@ class CrearTablaDventa extends Migration
             $table->unsignedInteger('venta_id');
             $table->foreign('venta_id')->references('id')->on('venta');   
             $table->unsignedInteger('repuesto_id');
-            $table->foreign('repuesto_id')->references('id')->on('repuesto');    
+            $table->foreign('repuesto_id')->references('id')->on('repuesto');  
+            $table->integer('cantidad'); 
             $table->timestamps();
         });
     }

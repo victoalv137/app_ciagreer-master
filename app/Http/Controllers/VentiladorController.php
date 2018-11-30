@@ -37,6 +37,25 @@ class VentiladorController extends Controller
      */
     public function store(Request $request)
     {
+
+        $messages = [
+            'codigo.required' => 'Es necesario ingresar el código del ventilador.',
+            'costo.required' => 'Es necesario ingresar el costo del ventilador.',
+            'modelo.required' => 'Es necesario ingresar el modelo del ventilador',
+            'capacidad.required' => 'Es necesario ingresar la capacidad del ventilador',
+            'medida.required' => 'Es necesario ingresar la medida del ventilador',
+        ];
+
+        $rules = [
+            'codigo' => 'required',
+            'costo' => 'required',
+            'modelo' => 'required',
+            'capacidad' => 'required',
+            'medida' => 'required',
+        ];
+        $this->validate($request, $rules, $messages);
+
+
         $producto = new Producto();
         $producto->codigo = $request->input('codigo');
         $producto->costo = $request->input('costo');
@@ -83,9 +102,27 @@ class VentiladorController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $messages = [
+            'codigo.required' => 'Es necesario ingresar el código del ventilador.',
+            'costo.required' => 'Es necesario ingresar el costo del ventilador.',
+            'modelo.required' => 'Es necesario ingresar el modelo del ventilador',
+            'capacidad.required' => 'Es necesario ingresar la capacidad del ventilador',
+            'medida.required' => 'Es necesario ingresar la medida del ventilador',
+        ];
+
+        $rules = [
+            'codigo' => 'required',
+            'costo' => 'required',
+            'modelo' => 'required',
+            'capacidad' => 'required',
+            'medida' => 'required',
+        ];
+        $this->validate($request, $rules, $messages);
+
         $ventilador = Ventilador::find($id);
-        $ventilador->codigo = $request->input('codigo');
-        $ventilador->costo = $request->input('costo');
+        $ventilador->producto->codigo = $request->input('codigo');
+        $ventilador->producto->costo = $request->input('costo');
         $ventilador->marca = $request->input('marcaid');
         $ventilador->modelo = $request->input('modelo'); 
         $ventilador->capacidad = $request->input('capacidad');    

@@ -14,7 +14,10 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ url('/AlquilerVenta/Ventas') }}"><i class="fas fa-cart-plus"></i> Ventas</a>
-            </li>                                  
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url('/Cliente') }}"><i class="fas fa-cart-plus"></i> Clientes</a>
+            </li>                                                                    
           </ul>
         </div>
         <div class="col-md-10  mt-3 ">

@@ -1,5 +1,14 @@
 @extends('alquiler.lyt-alquiler')
 @section('content-alquiler')
+@if ($errors->any())
+                <div class="alert alert-danger">
+                  <ul>
+                    @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                    @endforeach
+                  </ul>
+                </div>
+              @endif
 <form method="post" action="{{ url('/AlquilerVenta/Cotizacion/'.$cotizacion->id.'/Alquiler/Guardar')}}">
     {{ csrf_field() }}
  <div class="row">
@@ -31,7 +40,7 @@
             </div>
             <div class="col-md-6">       
                     <label for="">Costo(Mes)</label>       
-                    <input type="text" class="form-control" value="{{$cotizacion->producto->costo}}" name="costo" disabled>
+                    <input type="number" min="1" step="any" class="form-control" value="{{$cotizacion->producto->costo}}" name="costo" disabled>
             </div>
     </div><br>
     <h4>Datos Llenables</h4>
@@ -48,7 +57,7 @@
             <label for="">Tiempo Alquiler</label>
             <div class="input-group">  
                 <span class="input-group-text">Meses</span>              
-                <input type="text" class="form-control" placeholder="Ingresar Tiempo Alquiler" name="tiempo">
+                <input type="number" min="1" step="1" class="form-control" placeholder="Ingresar Tiempo Alquiler" name="tiempo">
             </div>
         </div>
     </div>

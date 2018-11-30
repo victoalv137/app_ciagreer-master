@@ -36,6 +36,26 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
+
+        $messages = [
+            'nombre.required' => 'Es necesario ingresar el nombre comercial.',
+            'ruc.required' => 'Es necesario ingresar el RUC de la empresa.',
+            'ruc.digits' => 'El RUC debe contener 11 digitos.',
+            'giro.required' => 'Es necesario ingresar el giro del negocio.',
+            'telefono.required' => 'Es necesario ingresar el telefono',
+            'direccion.required' => 'Es necesario ingresar la dirección',
+        ];
+
+        $rules = [
+            'nombre' => 'required',
+            'ruc' => 'required|digits:11',
+            'giro' => 'required',
+            'telefono' => 'required',
+            'direccion' => 'required',
+        ];
+        $this->validate($request, $rules, $messages);
+
+
         $cliente=new Cliente();
         $cliente->nombreComercial = $request->input('nombre');
         $cliente->ruc = $request->input('ruc');
@@ -78,6 +98,24 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $messages = [
+            'nombre.required' => 'Es necesario ingresar el nombre comercial.',
+            'ruc.required' => 'Es necesario ingresar el RUC de la empresa.',
+            'ruc.digits' => 'El RUC debe contener 11 digitos.',
+            'giro.required' => 'Es necesario ingresar el giro del negocio.',
+            'telefono.required' => 'Es necesario ingresar el telefono',
+            'direccion.required' => 'Es necesario ingresar la dirección',
+        ];
+
+        $rules = [
+            'nombre' => 'required',
+            'ruc' => 'required|digits:11',
+            'giro' => 'required',
+            'telefono' => 'required',
+            'direccion' => 'required',
+        ];
+        $this->validate($request, $rules, $messages);
+
         $cliente = Cliente::find($id);            
         $cliente->nombreComercial = $request->input('nombre');
         $cliente->ruc = $request->input('ruc');

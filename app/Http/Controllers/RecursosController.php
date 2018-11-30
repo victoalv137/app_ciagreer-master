@@ -53,6 +53,20 @@ class RecursosController extends Controller
     }
     public function actualizarArea(Request $request,$id)
     {
+        $messages = [
+            'codigo.required' => 'Es necesario ingresar el código.',
+            'nombre.required' => 'Es necesario ingresar el nombre',
+            'descripcion.required' => 'Es necesario ingresar la descripción',
+        ];
+
+        $rules = [
+            'codigo' => 'required',
+            'nombre' => 'required',
+            'descripcion' => 'required',
+        ];
+        $this->validate($request, $rules, $messages);
+
+
         $area = Area::find($id);            
         $area->codigo = $request->input('codigo');       
         $area->nombre = $request->input('nombre');   
@@ -75,6 +89,29 @@ class RecursosController extends Controller
     }
     public function actualizarEmpleado(Request $request,$id)
     {
+
+        $messages = [
+            'nombres.required' => 'Es necesario ingresar el nombre del empleado.',
+            'apellidos.required' => 'Es necesario ingresar los apellidos del empleado.',
+            'dni.required' => 'Es necesario ingresar el dni del empleado.',
+            'dni.digits' => 'El DNI debe contener 8 digitos.',
+            'direccion.required' => 'Es necesario ingresar la direccion del empleado.',
+            'telefono.required' => 'Es necesario ingresar el telefono',
+            'fecha.required' => 'Es necesario ingresar la fecha',
+        ];
+
+        $rules = [
+            'nombres' => 'required',
+            'apellidos' => 'required',
+            'dni' => 'required|digits:8',
+            'direccion' => 'required',
+            'telefono' => 'required',
+            'fecha' => 'required',
+        ];
+        $this->validate($request, $rules, $messages);
+
+
+
         $empleado = Empleado::find($id);            
         $name='';
         if($request->hasFile('cv')){
@@ -116,6 +153,20 @@ class RecursosController extends Controller
      */
     public function storeArea(Request $request)
     {
+        $messages = [
+            'codigo.required' => 'Es necesario ingresar el código.',
+            'nombre.required' => 'Es necesario ingresar el nombre',
+            'descripcion.required' => 'Es necesario ingresar la descripción',
+        ];
+
+        $rules = [
+            'codigo' => 'required',
+            'nombre' => 'required',
+            'descripcion' => 'required',
+        ];
+        $this->validate($request, $rules, $messages);
+
+
         $area= new Area();
         $area->codigo = $request->input('codigo');       
         $area->nombre = $request->input('nombre');   
@@ -125,6 +176,26 @@ class RecursosController extends Controller
     }
     public function storeEmpleado(Request $request)
     {
+        $messages = [
+            'nombres.required' => 'Es necesario ingresar el nombre del empleado.',
+            'apellidos.required' => 'Es necesario ingresar los apellidos del empleado.',
+            'dni.required' => 'Es necesario ingresar el dni del empleado.',
+            'dni.digits' => 'El DNI debe contener 8 digitos.',
+            'direccion.required' => 'Es necesario ingresar la direccion del empleado.',
+            'telefono.required' => 'Es necesario ingresar el telefono',
+            'fecha.required' => 'Es necesario ingresar la fecha',
+        ];
+
+        $rules = [
+            'nombres' => 'required',
+            'apellidos' => 'required',
+            'dni' => 'required|digits:8',
+            'direccion' => 'required',
+            'telefono' => 'required',
+            'fecha' => 'required',
+        ];
+        $this->validate($request, $rules, $messages);
+
         $name='';
         if($request->hasFile('cv')){
             $file=$request->file('cv');
@@ -143,10 +214,25 @@ class RecursosController extends Controller
         $empleado->area_id = $request->input('area');
         $empleado->cv=$name;  
         $empleado->save();
-        return redirect('/RecursosHumanos/Areas');
+        return redirect('/RecursosHumanos/Empleados');
     }
     public function storeCapacitacion(Request $request)
     {
+        $messages = [
+            'tema.required' => 'Es necesario ingresar el tema de la capacitación.',
+            'fechainicio.required' => 'Es necesario ingresar la fecha de inicio de la capacitación.',
+            'fechafin.required' => 'Es necesario ingresar la fecha fin de la capacitación.',
+
+        ];
+
+        $rules = [
+            'tema' => 'required',
+            'fechainicio' => 'required',
+            'fechafin' => 'required',
+        ];
+
+        $this->validate($request, $rules, $messages);
+
         $capacitacion= new Capacitacion();
         $capacitacion->tema = $request->input('tema');       
         $capacitacion->fechaInicio = $request->input('fechainicio');   
@@ -164,6 +250,18 @@ class RecursosController extends Controller
         return redirect()->back();
        
     }
+
+    public function eparticipante(Request $request, $idcapacitacion)
+    {
+        
+        $capacitacion = Capacitacion::find($idcapacitacion);
+
+        $capacitacion->empleados()->attach($request->input('empleado'));
+        return redirect()->back();
+       
+    }
+
+    
     public function VerParticipantes($idcapacitacion)    
     {
         $capacitacion = Capacitacion::find($idcapacitacion);        
@@ -192,7 +290,37 @@ class RecursosController extends Controller
         $capacitacion = Capacitacion::find($id);  
         return view('recursos.capacitacion.imprimir')->with(compact('capacitacion'));
         
-    }       
+    }      
+    public function editarCapacitacion($id)
+    {
+        $capacitacion=Capacitacion::find($id);
+        $empleados =Empleado::all();
+        return view('recursos.capacitacion.editar')->with(compact('capacitacion','empleados'));
+    } 
+    public function actualizarCapacitacion(Request $request,$id)
+    {
+        $messages = [
+            'tema.required' => 'Es necesario ingresar el tema de la capacitación.',
+            'fechainicio.required' => 'Es necesario ingresar la fecha de inicio de la capacitación.',
+            'fechafin.required' => 'Es necesario ingresar la fecha fin de la capacitación.',
+
+        ];
+
+        $rules = [
+            'tema' => 'required',
+            'fechainicio' => 'required',
+            'fechafin' => 'required',
+        ];
+
+        $this->validate($request, $rules, $messages);
+
+        $capacitacion= Capacitacion::find($id);
+        $capacitacion->tema = $request->input('tema');       
+        $capacitacion->fechaInicio = $request->input('fechainicio');   
+        $capacitacion->fechaFin = $request->input('fechafin');    
+        $capacitacion->save();
+        return redirect('/RecursosHumanos/Capacitacion'); 
+    } 
   
     /**
      * Display the specified resource.

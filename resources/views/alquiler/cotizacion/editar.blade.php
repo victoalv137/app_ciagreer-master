@@ -1,5 +1,14 @@
 @extends('alquiler.lyt-alquiler')
 @section('content-alquiler')
+@if ($errors->any())
+                <div class="alert alert-danger">
+                  <ul>
+                    @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                    @endforeach
+                  </ul>
+                </div>
+              @endif
 <form method="post" action="{{ url('/AlquilerVenta/Cotizacion/'.$cotizacion->id.'/Actualizar')}}">
     {{ csrf_field() }}
 <div class="row">
@@ -30,11 +39,11 @@
     <div class="col-md-6">       
         <label for="">Validez Oferta</label>       
         <div class="input-group">            
-        <input type="text" class="form-control" value="{{$cotizacion->validez}}"placeholder="Ingresar Validez Oferta" name="validez"> 
+        <input type="number" min="1" max="31" class="form-control" value="{{$cotizacion->validez}}"placeholder="Ingresar Validez Oferta" name="validez"> 
             <span class="input-group-text">Dias</span>     
         </div><br>
         <label for="">Pago</label>       
-    <input type="text" class="form-control" value="{{$cotizacion->pago}}" placeholder="Ingresar Pago" name="pago"><br>
+    <input type="number" min="1" step="any" class="form-control" value="{{$cotizacion->pago}}" placeholder="Ingresar Pago" name="pago"><br>
         
         </div>
     </div>

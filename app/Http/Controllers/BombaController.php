@@ -37,6 +37,29 @@ class BombaController extends Controller
      */
     public function store(Request $request)
     {
+        $messages = [
+            'codigo.required' => 'Es necesario ingresar el código de la bomba.',
+            'costo.required' => 'Es necesario ingresar el costo de la bomba.',
+            'modelo.required' => 'Es necesario ingresar el modelo de la bomba.',
+            'alto.required' => 'Es necesario ingresar el alto de la bomba',
+            'caballo.required' => 'Es necesario ingresar los caballos de fuerza de la bomba',
+            'ancho.required' => 'Es necesario ingresar el ancho de la bomba',
+            'velocidad.required' => 'Es necesario ingresar la velocidad de la bomba',
+        ];
+
+        $rules = [
+            'codigo' => 'required',
+            'costo' => 'required',
+            'modelo' => 'required',
+            'alto' => 'required',
+            'caballo' => 'required',
+            'ancho' => 'required',
+            'velocidad' => 'required',
+        ];
+        $this->validate($request, $rules, $messages);
+
+
+
         $producto = new Producto();
         $producto->codigo = $request->input('codigo');
         $producto->costo = $request->input('costo');
@@ -72,6 +95,8 @@ class BombaController extends Controller
      */
     public function edit($id)
     {
+
+        
         $bomba = Bomba::find($id);
         return view('planeamiento.bomba.editar')->with(compact('bomba'));
     }
@@ -85,9 +110,32 @@ class BombaController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $messages = [
+            'codigo.required' => 'Es necesario ingresar el código de la bomba.',
+            'costo.required' => 'Es necesario ingresar el costo de la bomba.',
+            'modelo.required' => 'Es necesario ingresar el modelo de la bomba.',
+            'alto.required' => 'Es necesario ingresar el alto de la bomba',
+            'caballo.required' => 'Es necesario ingresar los caballos de fuerza de la bomba',
+            'ancho.required' => 'Es necesario ingresar el ancho de la bomba',
+            'velocidad.required' => 'Es necesario ingresar la velocidad de la bomba',
+        ];
+
+        $rules = [
+            'codigo' => 'required',
+            'costo' => 'required',
+            'modelo' => 'required',
+            'alto' => 'required',
+            'caballo' => 'required',
+            'ancho' => 'required',
+            'velocidad' => 'required',
+        ];
+        $this->validate($request, $rules, $messages);
+
+        
         $bomba = Bomba::find($id);            
-        $bomba->codigo = $request->input('codigo');
-        $bomba->costo = $request->input('costo');
+        $bomba->producto->codigo = $request->input('codigo');
+        $bomba->producto->costo = $request->input('costo');
         $bomba->marca = $request->input('marcaid');
         $bomba->modelo = $request->input('modelo'); 
         $bomba->alto = $request->input('alto');    

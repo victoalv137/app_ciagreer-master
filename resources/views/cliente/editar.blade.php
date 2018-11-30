@@ -1,5 +1,14 @@
 @extends('alquiler.lyt-alquiler')
 @section('content-alquiler')
+@if ($errors->any())
+                <div class="alert alert-danger">
+                  <ul>
+                    @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                    @endforeach
+                  </ul>
+                </div>
+              @endif
 <form method="post" action="{{ url('/Cliente/'.$clientes->id.'/Actualizar')}}">
     {{ csrf_field() }}
 <div class="row">
@@ -22,7 +31,7 @@
     </div>
     <div class="col-md-6">       
         <label for="">Telefono</label>       
-        <input type="text" class="form-control" value="{{$clientes->telefono}}" placeholder="Ingresar Telefono" name="telefono"><br>
+        <input type="tel" class="form-control" value="{{$clientes->telefono}}" placeholder="Ingresar Telefono" name="telefono"><br>
         <label for="">Direccion</label>       
         <input type="text" class="form-control" value="{{$clientes->direccion}}" placeholder="Ingresar direccion" name="direccion">      
         </div>

@@ -1,5 +1,14 @@
-@extends('planeamiento.lyt-planeamiento')
-@section('content-planeamiento')
+@extends('alquiler.lyt-alquiler')
+@section('content-alquiler')
+@if ($errors->any())
+                <div class="alert alert-danger">
+                  <ul>
+                    @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                    @endforeach
+                  </ul>
+                </div>
+              @endif
 <form method="post" action="{{ url('/AlquilerVenta/Ventas/Guardar')}}">
 {{ csrf_field() }}
 <div class="row">

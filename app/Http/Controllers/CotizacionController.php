@@ -40,6 +40,21 @@ class CotizacionController extends Controller
      */
     public function store(Request $request)
     {
+
+        $messages = [
+            'codigo.required' => 'Es necesario ingresar el código de la cotizacion.',
+            'validez.required' => 'Es necesario ingresar la validez de la cotización.',
+            'pago.required' => 'Es necesario ingresar el pago de la cotización.',
+        ];
+
+        $rules = [
+            'codigo' => 'required',
+            'validez' => 'required',
+            'pago' => 'required',
+        ];
+        $this->validate($request, $rules, $messages);
+
+
         $cotizacion= new Cotizacion();
         $cotizacion->codigo = $request->input('codigo');
         $cotizacion->validez = $request->input('validez');
@@ -85,6 +100,21 @@ class CotizacionController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $messages = [
+            'codigo.required' => 'Es necesario ingresar el código de la cotizacion.',
+            'validez.required' => 'Es necesario ingresar la validez de la cotización.',
+            'pago.required' => 'Es necesario ingresar el pago de la cotización.',
+        ];
+
+        $rules = [
+            'codigo' => 'required',
+            'validez' => 'required',
+            'pago' => 'required',
+        ];
+        $this->validate($request, $rules, $messages);
+
+        
         $cotizacion= Cotizacion::find($id);
         $cotizacion->codigo = $request->input('codigo');
         $cotizacion->validez = $request->input('validez');

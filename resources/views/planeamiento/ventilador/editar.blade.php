@@ -1,5 +1,14 @@
 @extends('planeamiento.lyt-planeamiento')
 @section('content-planeamiento')
+@if ($errors->any())
+                <div class="alert alert-danger">
+                  <ul>
+                    @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                    @endforeach
+                  </ul>
+                </div>
+              @endif
 <form method="post" action="{{ url('/Planeamiento/VentiladorAxial/'.$ventilador->id.'/Actualizar')}}">
     {{ csrf_field() }}
 <div class="row">
@@ -20,7 +29,7 @@
         <label for="">Costo</label>       
         <div class="input-group">                
         <span class="input-group-text">$</span>
-        <input type="text" class="form-control" value="{{$ventilador->producto->costo}}" placeholder="Ingresar Costo Producto" name="costo">      
+        <input type="number" min="1" step="any" class="form-control" value="{{$ventilador->producto->costo}}" placeholder="Ingresar Costo Producto" name="costo">      
         </div>
     </div>
 </div><br>
@@ -43,14 +52,14 @@
     <div class="col-md-6">
         <label for="">Capacidad</label>
         <div class="input-group">              
-            <input type="text" class="form-control" value="{{$ventilador->capacidad}}" placeholder="Ingresar Capacidad" name="capacidad">
+            <input type="number" min="1" step="any" class="form-control" value="{{$ventilador->capacidad}}" placeholder="Ingresar Capacidad" name="capacidad">
             <span class="input-group-text">CFM</span>      
         </div>       
     </div>
     <div class="col-md-6">       
         <label for="">Medida Salida</label>
         <div class="input-group">              
-            <input type="text" class="form-control" value="{{$ventilador->medida}}"  placeholder="Ingresar Medida Salida" name="medida">
+            <input type="number" min="1" step="any" class="form-control" value="{{$ventilador->medida}}"  placeholder="Ingresar Medida Salida" name="medida">
             <span class="input-group-text">pulg</span>      
         </div>
     </div>

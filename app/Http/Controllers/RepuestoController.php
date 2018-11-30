@@ -36,6 +36,22 @@ class RepuestoController extends Controller
      */
     public function store(Request $request)
     {
+        $messages = [
+            'codigo.required' => 'Es necesario ingresar el código del repuesto.',
+            'descripcion.required' => 'Es necesario ingresar la descripción del repuesto.',
+            'costo.required' => 'Es necesario ingresar el costo del repuesto.',
+
+        ];
+
+        $rules = [
+            'codigo' => 'required',
+            'descripcion' => 'required',
+            'costo' => 'required',
+
+        ];
+        $this->validate($request, $rules, $messages);
+
+        
         $repuesto = new Repuesto();
         $repuesto->codigo = $request->input('codigo');     
         $repuesto->descripcion = $request->input('descripcion');   
@@ -77,6 +93,23 @@ class RepuestoController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $messages = [
+            'codigo.required' => 'Es necesario ingresar el código del repuesto.',
+            'descripcion.required' => 'Es necesario ingresar la descripción del repuesto.',
+            'costo.required' => 'Es necesario ingresar el costo del repuesto.',
+
+        ];
+
+        $rules = [
+            'codigo' => 'required',
+            'descripcion' => 'required',
+            'costo' => 'required',
+
+        ];
+
+        $this->validate($request, $rules, $messages);
+
         $repuesto = Repuesto::find($id);            
         $repuesto->codigo = $request->input('codigo');     
         $repuesto->descripcion = $request->input('descripcion');   

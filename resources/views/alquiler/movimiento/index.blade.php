@@ -10,8 +10,8 @@
       <tr>
         <th scope="col">Cotizacion</th>
         <th scope="col">Costo</th>
-        <th scope="col">Tiempo(Meses)</th>
         <th scope="col">Cliente</th>
+        <th scope="col">Tiempo(Meses)</th>
         <th scope="col">Obra</th>     
         <th scope="col">Operaciones</th>
       </tr>

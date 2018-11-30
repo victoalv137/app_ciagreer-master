@@ -1,5 +1,17 @@
 @extends('planeamiento.lyt-planeamiento')
 @section('content-planeamiento')
+
+
+
+@if ($errors->any())
+                <div class="alert alert-danger">
+                  <ul>
+                    @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                    @endforeach
+                  </ul>
+                </div>
+              @endif
 <form method="post" action="{{ url('/Planeamiento/BombaSumergible/Guardar')}}">
 {{ csrf_field() }}
 <div class="row">
@@ -20,7 +32,7 @@
         <label for="">Costo</label>       
         <div class="input-group">                
         <span class="input-group-text">$</span>
-        <input type="text" class="form-control" placeholder="Ingresar Costo Producto" name="costo">      
+        <input  type="number" min="1" step="any" class="form-control" placeholder="Ingresar Costo Producto" name="costo">      
         </div>
     </div>
 </div><br>
@@ -45,24 +57,24 @@
     <div class="col-md-6">
         <label for="">Alto</label>
         <div class="input-group">              
-            <input type="text" class="form-control" placeholder="Ingresar Caballos  de Fuerza" name="alto">
+            <input type="number" min="1" step="any" class="form-control" placeholder="Ingresar Caballos  de Fuerza" name="alto">
             <span class="input-group-text">mm</span>      
         </div><br>
         <label for="">Ancho</label>
         <div class="input-group">              
-            <input type="text" class="form-control" placeholder="Ingresar Maxima Altitud Dinamica" name="ancho">
+            <input type="number" min="1" step="any" class="form-control" placeholder="Ingresar Maxima Altitud Dinamica" name="ancho">
             <span class="input-group-text">mm</span>      
         </div>
     </div>
     <div class="col-md-6">
         <label for="">Potencia Nominal</label>
         <div class="input-group">              
-            <input type="text" class="form-control" placeholder="Ingresar Caballos  de Fuerza" name="caballo">
+            <input type="number" min="1" step="any" class="form-control" placeholder="Ingresar Caballos  de Fuerza" name="caballo">
             <span class="input-group-text">HP</span>      
         </div><br>
         <label for="">Velocidad</label>
         <div class="input-group">              
-            <input type="text" class="form-control" placeholder="Ingresar Maxima Altitud Dinamica" name="velocidad">
+            <input type="number" min="1" step="any" class="form-control" placeholder="Ingresar Maxima Altitud Dinamica" name="velocidad">
             <span class="input-group-text">rpm</span>      
         </div>
     </div>
